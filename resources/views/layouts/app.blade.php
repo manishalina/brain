@@ -24,7 +24,7 @@
          @include('includes/header')
           @yield('content')
          <!--Sponsors Section-->
-         <div style="height:100px"></div>
+         <!-- <div style="height:100px"></div> -->
          <!--End Sponsors Section-->
          <!--Map Info Section-->
         

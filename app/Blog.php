@@ -20,5 +20,8 @@ class Blog extends Authenticatable
     protected $fillable = [
         'title', 'image', 'description','createdby'
     ];
-
+public function user_detail(){
+        return $this->belongsTo('App\User', 'createdby', 'id');
+    }
+    
 }

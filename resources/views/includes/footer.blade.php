@@ -28,12 +28,12 @@
 	                                <div class="footer-widget links-widget">
 										<h4>Links</h4>
 										<ul class="list-link">
-											<li><a href="#">Home</a></li>
+											<li><a href="./">Home</a></li>
 											<li><a href="#">Services</a></li>
-											<li><a href="#">About us</a></li>
+											<li><a href="{{URL('about')}}">About us</a></li>
 											<li><a href="#">FAQ</a></li>
-											<li><a href="#">Blog</a></li>
-											<li><a href="#">Contact</a></li>
+											<li><a href="{{URL('blogs')}}">Blog</a></li>
+											<li><a href="{{URL('contact')}}">Contact</a></li>
 										</ul>
 									</div>
 								</div>
@@ -49,13 +49,13 @@
 	                                <div class="footer-widget links-widget">
 										<h4>Support</h4>
 										<ul class="list-link">
-											 <li><a href="#">Contact Us</a></li>
+											 <li><a href="{{URL('contact')}}">Contact Us</a></li>
 	                                        <li><a href="#">Career catalogue</a></li>
-											<li><a href="#">Terms and Conditions</a></li>
-											<li><a href="#">Refund Policy</a></li>
-											   <li><a href="#">Disclaimer</a></li>
-	                                        <li><a href="#">Privacy Policy</a></li>
-	                                        <li><a href="#">Talk to Experts</a></li>
+											<li><a href="{{URL('terms-and-conditions')}}">Terms and Conditions</a></li>
+											<!-- <li><a href="#">Refund Policy</a></li> -->
+											 <li><a href="{{URL('disclaimer')}}">Disclaimer</a></li>
+	                                        <li><a href="{{URL('privacy-policy')}}">Privacy Policy</a></li>
+	                                        <li><a href="{{URL('contact')}}">Talk to Experts</a></li>
 										</ul>
 									</div>
 								</div>
@@ -67,17 +67,17 @@
 										<div class="widget-content">
 											<div class="images-outer clearfix">
 												<!--Image Box-->
-												<figure class="image-box"><a href="images/gallery/1.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-1.jpg')}}" alt=""></a></figure>
+												<figure class="image-box"><a href="{{ asset('assets/images/gallery/1.jpg')}}" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-1.jpg')}}" alt=""></a></figure>
 												<!--Image Box-->
-												<figure class="image-box"><a href="images/gallery/2.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-2.jpg')}}" alt=""></a></figure>
+												<figure class="image-box"><a href="{{ asset('assets/images/gallery/2.jpg')}}" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-2.jpg')}}" alt=""></a></figure>
 												<!--Image Box-->
-												<figure class="image-box"><a href="images/gallery/3.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-3.jpg')}}" alt=""></a></figure>
+												<figure class="image-box"><a href="{{ asset('assets/images/gallery/3.jpg')}}" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-3.jpg')}}" alt=""></a></figure>
 												<!--Image Box-->
-												<figure class="image-box"><a href="images/gallery/4.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-4.jpg')}}" alt=""></a></figure>
+												<figure class="image-box"><a href="{{ asset('assets/images/gallery/4.jpg')}}" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-4.jpg')}}" alt=""></a></figure>
 												<!--Image Box-->
-												<figure class="image-box"><a href="images/gallery/5.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-5.jpg')}}" alt=""></a></figure>
+												<figure class="image-box"><a href="{{ asset('assets/images/gallery/5.jpg')}}" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-5.jpg')}}" alt=""></a></figure>
 												<!--Image Box-->
-												<figure class="image-box"><a href="images/gallery/6.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-6.jpg')}}" alt=""></a></figure>
+												<figure class="image-box"><a href="{{ asset('assets/images/gallery/6.jpg')}}" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="{{ asset('assets/images/gallery/footer-gallery-thumb-6.jpg')}}" alt=""></a></figure>
 											</div>
 										</div>
 									</div>

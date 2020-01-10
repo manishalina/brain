@@ -23,31 +23,31 @@
 
 							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 								<ul class="navigation clearfix">
-									<li><a href="{{URL('/')}}">Home</a></li>
+									<li><a href="./">Home</a></li>
 									<li class="dropdown"><a href="#">About Us</a>
 									<ul>
 									<li><a href="{{URL('about')}}">About Us</a></li>
-									<li><a href="{{URL('about')}}">Our Team</a></li>
-									<li><a href="{{URL('about')}}">Case Studies</a></li>
+									<li><a href="{{URL('team')}}">Our Team</a></li>
+									<!-- <li><a href="{{URL('about')}}">Case Studies</a></li> -->
 									</ul>
 									</li>
 									<li class="dropdown"><a href="#">Program for Students</a>
 									<ul>
-									<li><a href="8thGrade.php">8thGrade</a></li>
-									<li><a href="9th10th.php">9th& 10th Grade</a></li>
-									<li><a href="11th12th.php">11th& 12thGrade</a></li>
+									<li><a href="{{URL('grade-eight')}}">8thGrade</a></li>
+									<li><a href="{{URL('grade-ninth')}}">9th& 10th Grade</a></li>
+									<li><a href="{{URL('grade-eleven')}}">11th& 12thGrade</a></li>
 									</ul>
 									</li>
 									<li class="dropdown"><a href="#">Program for Institutes </a>
 										<ul>
-										<li><a href="Programhighlights.php">Program Highpoints</a></li>
-										<li><a href="Programfeatures.php">Program Structure</a></li>
+										<li><a href="{{URL('programhighlights')}}">Program Highpoints</a></li>
+										<li><a href="{{URL('programfeatures')}}">Program Structure</a></li>
 										</ul>
 									</li>
-									<li><a href="#">Blog</a>								</li>
+									<li><a href="{{URL('blogs')}}">Blog</a>								</li>
 									<li class="dropdown"><a href="contact.html">Support</a>
 										<ul>
-										<li><a href="contact.php">Talk to Experts</a></li>
+										<li><a href="{{route('contact') }}">Talk to Experts</a></li>
 										@guest
 											<li><a href="{{ route('login') }}">Admin Login /Sign in</a></li>
 											<li><a href="{{ route('user-login') }}">User Login /Sign in</a></li>
@@ -66,7 +66,7 @@
 										@endguest
 										</ul>
 									</li>
-									<li><a href="contact.php">Contact US</a></li>
+									<li><a href="{{route('contact') }}">Contact US</a></li>
 								</ul>
 							</div>
 						</nav>
@@ -103,37 +103,37 @@
                         
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
                             <ul class="navigation clearfix">
-                                <li><a href="{{URL('/')}}">Home</a>								</li>
+                                <li><a href="./">Home</a></li>
 								<li class="dropdown"><a href="#">About Us</a>
 									<ul>
 										<li><a href="{{URL('about')}}">About Us</a></li>
-										<li><a href="{{URL('about')}}">Our Team</a></li>
-										<li><a href="{{URL('about')}}">Case Studies</a></li>
+										<li><a href="{{URL('team')}}">Our Team</a></li>
+										<!-- <li><a href="{{URL('about')}}">Case Studies</a></li> -->
 									</ul>
 								</li>
 								<li class="dropdown"><a href="#">Program for Students</a>
 									<ul>
-										<li><a href="8thGrade.php">8thGrade</a></li>
-										<li><a href="9th10th.php">9th& 10th Grade</a></li>
-										<li><a href="11th12th.php">11th& 12thGrade</a></li>
+										<li><a href="{{URL('grade-eight')}}">8thGrade</a></li>
+										<li><a href="{{URL('grade-ninth')}}">9th& 10th Grade</a></li>
+										<li><a href="{{URL('grade-eleven')}}">11th& 12thGrade</a></li>
 									</ul>
 								</li>
 								<li class="dropdown"><a href="#">Program for Institutes </a>
 									<ul>
-                   <li><a href="Programhighlights.php">Program Highpoints</a></li>
-                    <li><a href="Programfeatures.php">Program Structure</a></li>
+										<li><a href="{{URL('programhighlights')}}">Program Highpoints</a></li>
+										<li><a href="{{URL('programfeatures')}}">Program Structure</a></li>
 									</ul>
 								</li>
 								<li><a href="blog.php">Blog</a>								</li>
 								<li class="dropdown"><a href="contact.html">Support</a>
                                 	<ul>
-										<li><a href="contact.php">Talk to Experts</a></li>
+										<li><a href="{{route('contact') }}">Talk to Experts</a></li>
 										<li><a href="{{ route('login') }}">Admin Login /Sign in</a></li>
 										<li><a href="{{ route('user-login') }}">User Login /Sign in</a></li>
 										<li><a href="{{ route('user-register') }}">Register /Sign up</a></li>
 									</ul>
                                 </li>
-                                	<li><a href="contact.php">Contact US</a></li>
+                                	<li><a href="{{route('contact') }}">Contact US</a></li>
                             </ul>
                       </div>
                     </nav><!-- Main Menu End-->

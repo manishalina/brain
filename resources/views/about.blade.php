@@ -9,7 +9,7 @@
       <div class="content">
         <h1>About <span>Us</span></h1>
         <ul class="page-breadcrumb">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="./">Home</a></li>
           <li>Pages</li>
           <li>About Us</li>
         </ul>

@@ -897,60 +897,30 @@
                </div>
                <div class="row clearfix">
                   <!-- News Block Four -->
+                  @foreach($blogs as $key=>$blog)
                   <div class="news-block-four col-lg-4 col-md-6 col-sm-12">
                      <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="image">
-                           <img src="{{ asset('assets/images/resource/news-4.jpg') }}" alt="" />
+                           <img src="{{asset('assets/blog/'.$blog->image)}}" alt="" />
                            <div class="overlay-box">
-                              <a href="images/resource/news-4.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus-symbol"></a>
+                              <a href="{{asset('assets/blog/'.$blog->image)}}" data-fancybox="news" data-caption="" class="plus flaticon-plus-symbol"></a>
                            </div>
                         </div>
                         <div class="lower-content">
                            <ul class="post-meta">
-                              <li><span class="fa fa-user"></span>Written By: JyotsnaPareek</li>
+                              <li><span class="fa fa-user"></span>Written By: {{$blog->user_detail->name}}</li>
                            </ul>
-                           <h5><a href="blog-single.php">Pyschometric  test -  Need & Importance.</a></h5>
-                           <a href="blog-single.php" class="theme-btn btn-style-eighteen">View more</a>
+                           <h5><a href="#">{{$blog->title}}</a></h5>
+                           <a href="{{URL('blogs')}}" class="theme-btn btn-style-eighteen">View more</a>
                         </div>
                      </div>
                   </div>
+                   @endforeach
+                  <!-- News Block Four -->
+               
                   <!-- News Block Four -->
                   <div class="news-block-four col-lg-4 col-md-6 col-sm-12">
-                     <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <div class="image">
-                           <img src="{{ asset('assets/images/resource/news-5.jpg') }}" alt="" />
-                           <div class="overlay-box">
-                              <a href="images/resource/news-5.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus-symbol"></a>
-                           </div>
-                        </div>
-                        <div class="lower-content">
-                           <ul class="post-meta">
-                              <li><span class="fa fa-user"></span>Written By: Shilpa Jain</li>
-                           </ul>
-                           <h5><a href="blog2.php">12th Class – A Transmutation in Life.</a></h5>
-                           <a href="blog2.php" class="theme-btn btn-style-eighteen">View more</a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- News Block Four -->
-                  <div class="news-block-four col-lg-4 col-md-6 col-sm-12">
-                     <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                        <div class="image">
-                           <img src="{{ asset('assets/images/resource/news-6.jpg') }}" alt="" />
-                           <div class="overlay-box">
-                              <a href="images/resource/news-6.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus-symbol"></a>
-                           </div>
-                        </div>
-                        <div class="lower-content">
-                           <ul class="post-meta">
-                              <li><span class="fa fa-calendar"></span>September 12, 2019</li>
-                              <li><span class="fa fa-user"></span>Admin</li>
-                           </ul>
-                           <h5><a href="blog-single.html">Food industry leaders often change their promoters.</a></h5>
-                           <a href="#" class="theme-btn btn-style-eighteen">View more</a>
-                        </div>
-                     </div>
-                  </div>
+                  
                </div>
             </div>
          </section>
