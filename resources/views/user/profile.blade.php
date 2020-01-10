@@ -10,36 +10,36 @@
             	<div class="col-sm-8">
             		<div class="row form-group">
             			<div class="col-sm-2">First name:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{ $student->name }}</div>
             			<div class="col-sm-2">First name:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->lname}}</div>
             		</div>
 
             		<div class="row form-group">
             			<div class="col-sm-2">Grade:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->grade}}</div>
             			<div class="col-sm-2">Board:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->board}}</div>
             		</div>
 
             		<div class="row form-group">
             			<div class="col-sm-2">School:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->school}}</div>
             			<div class="col-sm-2">City:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->city}}</div>
             		</div>
 
 
             		<div class="row form-group">
             			<div class="col-sm-2">Contact No:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->contect}}</div>
             			<div class="col-sm-2">Address:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->address}}</div>
             		</div>
 
             		<div class="row form-group">
             			<div class="col-sm-2">Stream:</div>
-            			<div class="col-sm-4">First name:</div>
+            			<div class="col-sm-4">{{$student->stream}}</div>
             		</div>
 
             		<div class="row form-group">
@@ -47,7 +47,16 @@
             		</div>
             	</div>
             	<div class="col-sm-4">
-            		<img src="{{asset('gallery.png')}}">
+                        <?php
+
+                        $image = "";
+                        if($student->image !=''){
+                              $image = "assets/student/".$student->image;
+                        }else{
+                              $image = "gallery.png";
+                        }
+                        ?>
+            		<img src="{{asset($image)}}">
             	</div>
             </div>
 
@@ -88,7 +97,9 @@
             		</tbody>
             	</table>
             	</div>
-            	<div class="col-sm-9"></div>
+            	<div class="col-sm-9">
+                   
+                  </div>
             </div>
 
             <div class="form-group">
@@ -98,7 +109,7 @@
             </div>
 
             <div class="row form-group">
-            	<div class="col-sm-8">
+            	<div class="col-sm-5">
             		<table class="table">
             			<thead>
             				<tr>
@@ -126,7 +137,9 @@
             			</tbody>
             		</table>
             	</div>
-            	<div class="col-sm-4"></div>
+            	<div class="col-sm-7">
+                   <div id="chartContainer" style="height: 300px;"></div>          
+                  </div>
             </div>
 
             <div class="form-group">In terms of aptitude, you have a strong numerical ability which can</div>
@@ -148,4 +161,43 @@
         </div>
     </section>
     
+@endsection
+@section('extrajs')
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+var dataItem =   [];
+<?php
+$name = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal Reasoning");
+$abilities = array(90,20,30,40);
+foreach ($abilities as $key => $abilitie) { ?>
+      dataItem.push({ y: <?= $abilitie ?>, label: '<?= $name[$key] ?>' });
+<?php }
+?>
+
+console.log('data',dataItem);
+
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2", // "light1", "light2", "dark1", "dark2"
+      title:{
+            text: "Your top Abilities:"
+      },
+      axisY: {
+            title: ""
+      },
+      data: [{        
+            type: "column",  
+            showInLegend: true, 
+            legendMarkerColor: "grey",
+            legendText: "Abilities",
+            dataPoints: dataItem
+      }]
+});
+chart.render();
+
+}
+</script>
+
 @endsection

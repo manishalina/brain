@@ -46,6 +46,7 @@
       <!--Google Map APi Key-->
       <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTPlX-43R1TpcQUyWjFgiSfL_BiGxslZU"></script>
       <script src="{{ asset('assets/js/map-script.js') }}"></script>
+      @yield('extrajs')
       <!--End Google Map APi-->
    </body>
    <!-- Mirrored from themexriver.com/tfhtml/finano/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Dec 2019 12:57:27 GMT -->

@@ -15,7 +15,7 @@
             </ol>
           </div>
           <div class="col-sm-6 text text-right">
-            <a href="{{ URL('blog') }}" class="btn btn-info">List</a>
+            <a href="{{ URL('student') }}" class="btn btn-info">List</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -41,6 +41,14 @@
   				 $name = $student->name;
            $lname = $student->lname;
   				 $email = $student->email;
+           $grade = $student->grade;
+           $grade = $student->grade;
+           $board = $student->board;
+           $school = $student->school;
+           $city = $student->city;
+           $address = $student->address;
+           $contact = $student->contact;
+           $stream = $student->stream;
   				// $mobile = $client->mobile;
   				// $email = $client->email;
   				// $address = $client->address;
@@ -53,21 +61,31 @@
           @csrf
 
   				<?php 
-  				  $name = '';
+            $name = '';
             $lname = '';
             $email = '';
+            $grade = "";
+            $grade = "";
+            $board = "";
+            $school = "";
+            $city = "";
+            $address = "";;
+            $contact = "";;
+            $stream = "";
   				?>
 				@endif
 
   <!-- phone mask -->
   <div class="row form-group">
     <div class="col-sm-6">
-      <label>Name:<span class="text text-danger">*</span></label>
-      <input type="text" name="title" class="form-control" placeholder="Enter First Name" value="<?= $name ?>">
+      <label>Name:<span class="text text-danger">*</span>
+          <span class="text-danger">{{ $errors->first('fname') }}</span>
+      </label>
+      <input type="text" name="fname" class="form-control" placeholder="Enter First Name" value="<?= old('fname')?old('fname') :$name ?>">
     </div>
     <div class="col-sm-6">
-      <label>Last Name:<span class="text text-danger">*</span></label>
-      <input type="text" name="title" class="form-control" placeholder="Enter Last name" value="<?= $lname ?>">
+      <label>Last Name:</label>
+      <input type="text" name="lname" class="form-control" placeholder="Enter Last name" value="<?= old('lname') ?old('lname') :$lname ?>">
     </div>
   </div>
 
@@ -75,20 +93,42 @@
 
   <div class="row form-group">
     <div class="col-sm-6">
-      <label>School:<span class="text text-danger">*</span></label>
-      <input type="text" name="title" class="form-control" placeholder="Enter First Name" value="<?= $name ?>">
+      <label>School:<span class="text text-danger">*</span>
+        <span class="text-danger">{{ $errors->first('school') }}</span>
+      </label>
+      <input type="text" name="school" class="form-control" placeholder="Enter First Name" value="<?= old('school') ?old('school') :$school ?>">
     </div>
     <div class="col-sm-6">
-      <label>City:<span class="text text-danger">*</span></label>
-      <input type="text" name="title" class="form-control" placeholder="Enter Last name" value="<?= $lname ?>">
+      <label>City:<span class="text text-danger">*</span>
+        <span class="text-danger">{{ $errors->first('city') }}</span>
+      </label>
+      <input type="text" name="city" class="form-control" placeholder="Enter Last name" value="<?= old('city') ?old('city') :$city ?>">
     </div>
   </div>
-
+<?php
+    if( Request::segment(3) != 'edit' ){ ?>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <label>Email:<span class="text text-danger">*</span>
+        <span class="text-danger">{{ $errors->first('email') }}</span>
+      </label>
+      <input type="email" name="email" class="form-control" placeholder="Enter Email" value="<?= old('email') ?old('email') :$email ?>">
+    </div>
+    
+    <div class="col-sm-6">
+      <label>Password:<span class="text text-danger">*</span>
+        <span class="text-danger">{{ $errors->first('password') }}</span>
+      </label>
+      <input type="password" name="password" class="form-control" placeholder="Enter Password" value="">
+    </div>
+    
+  </div>
+<?php } ?>
 
   <div class="row form-group">
     <div class="col-sm-6">
       <label>Contect No.:<span class="text text-danger">*</span></label>
-      <input type="text" name="title" class="form-control" placeholder="Enter First Name" value="<?= $name ?>">
+      <input type="text" name="phone" class="form-control" placeholder="Enter First Name" value="<?= old('phone') ?old('phone') :$contact ?>">
     </div>
      <div class="col-sm-6">
         <label>Image:</label>
@@ -98,7 +138,7 @@
         $image="";
 
         if(Request::segment(3)==='edit') {
-        if($blog->image !=''){
+        if($student->image !=''){
         $image = '/assets/student/'.$student->image;
         }else{
         $image = 'user.png';
@@ -123,35 +163,50 @@
 
     <div class="row form-group">
     <div class="col-sm-4">
+      <?php
+      if(old('grade')){
+        $grade = old('grade');
+      } 
+      ?>
       <label>Grade:<span class="text text-danger">*</span></label>
       <select name="grade" class="form-control">
         <option value="" selected="" disabled="">Select Grade</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
+        <option value="8" <?php if($grade == '8'){echo "selected"; } ?>>8</option>
+        <option value="9" <?php if($grade == '9'){echo "selected"; } ?>>9</option>
+        <option value="10" <?php if($grade == '10'){echo "selected"; } ?>>10</option>
+        <option value="11" <?php if($grade == '11'){echo "selected"; } ?>>11</option>
+        <option value="12" <?php if($grade == '12'){echo "selected"; } ?>>12</option>
       </select>
     </div>
     <div class="col-sm-4">
+      <?php
+      if(old('board')){
+        $board = old('board');
+      } 
+      ?>
       <label>Board:<span class="text text-danger">*</span></label>
        <select name="board" class="form-control">
         <option value="" selected="" disabled="">Select Board</option>
-        <option value="State Board">State Board</option>
-        <option value="ISCE">ISCE</option>
-        <option value="CBSC">CBSC</option>
-        <option value="IB or Cambridge">IB or Cambridge</option>
+        <option value="State Board" <?php if($board == 'State Board'){echo "selected"; } ?>>State Board</option>
+        <option value="ISCE" <?php if($board == 'ISCE'){echo "selected"; } ?>>ISCE</option>
+        <option value="CBSC" <?php if($board == 'CBSC'){echo "selected"; } ?>>CBSC</option>
+        <option value="IB or Cambridge" <?php if($board == 'IB or Cambridge'){echo "selected"; } ?>>IB or Cambridge</option>
       </select>
     </div>
     <div class="col-sm-4">
+       <?php
+      if(old('stream')){
+        $stream = old('stream');
+      } 
+      ?>
      <label>Stream:<span class="text text-danger">*</span></label>
        <select name="stream" class="form-control">
         <option value="" selected="" disabled="">Select Stream</option>
-        <option value="PCM">PCM</option>
-        <option value="PCB">PCB</option>
-        <option value="PCMB">PCMB</option>
-        <option value="PCMCs">PCMCs</option>
-        <option value="PCBCs">PCBCs</option>
+        <option value="PCM" <?php if($stream == 'PCM'){echo "selected"; } ?>>PCM</option>
+        <option value="PCB" <?php if($stream == 'PCB'){echo "selected"; } ?>>PCB</option>
+        <option value="PCMB" <?php if($stream == 'PCMB'){echo "selected"; } ?>>PCMB</option>
+        <option value="PCMCs" <?php if($stream == 'PCMCs'){echo "selected"; } ?>>PCMCs</option>
+        <option value="PCBCs" <?php if($stream == 'PCBCs'){echo "selected"; } ?>>PCBCs</option>
       </select>
     </div>
   </div>
@@ -160,7 +215,7 @@
   <div class="row form-group">
     <div class="col-sm-12">
        <label>Address:<span class="text text-danger">*</span></label>
-       <textarea placeholder="Enter Address" name="address" class="form-control"></textarea>
+       <textarea placeholder="Enter Address" name="address" class="form-control"><?= $address; ?></textarea>
     </div>
   </div>
   <!-- /.form group -->

@@ -56,10 +56,17 @@
                   <th>Photo</th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th>Interest</th>
+                  <th>Abilities</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                  <?php
+$name = array("Realistic","Investigative","Artistic","Social","Enterprising","Conventional");
+$name1 = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal Reasoning");
+                  ?>
                 @foreach($students as $key=>$student)
                 <tr>
                   <td>{{$key+1}}</td>
@@ -77,8 +84,49 @@
                   <td>{{$student->name}}</td>
                   <td>{{ $student->email }}</td>
                   <td>
+                     @if($student->interest)
+                     <?php
+                      $arr = explode(',', $student->interest);
+                      foreach($arr as $key => $value) { ?>
+                        <li><?= $name[$key].' : '.$value; ?></li>
+                      <?php } ?>
+                     @else
+                     <span class="badge badge-success">NA</span>
+                   @endif
+                  </td>
+                  <td>
+                     @if($student->abilities)
+                        <?php
+                      $arr = explode(',', $student->abilities);
+                      foreach($arr as $key => $value) { ?>
+                        <li><?= $name1[$key].' : '.$value; ?></li>
+                      <?php } ?>
+                     @else
+                     <span class="badge badge-success">NA</span>
+                   @endif
+                  </td>
+                  <td>
+                     @if($student->IsVerify ==0)
+                     <span class="badge badge-danger">Unverify</span>
+                     @else
+                     <span class="badge badge-success">Verify</span>
+                   @endif
+                  </td>
+
+                  <td>
                    <a href="{{ route('student.edit', $student->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;" title="Edit">
                   <i class="fa fa-edit"></i>Edit</a> 
+                   @if($student->IsVerify ==0)
+                   <a href="{{ URL('verify/'.$student->id) }}" class="btn btn-warning pull-left" style="margin-right: 3px;" title="Edit">
+                  <i class="fa fa-edit"></i>Verify</a> 
+                   @endif
+
+                   <a href="{{ URL('interest/'.$student->id) }}" class="btn btn-warning pull-left" style="margin-right: 3px;" title="Edit">
+                  <i class="fa fa-edit"></i>Interest</a> 
+
+                  <a href="{{ URL('abilities/'.$student->id) }}" class="btn btn-warning pull-left" style="margin-right: 3px;" title="Edit">
+                  <i class="fa fa-edit"></i>Abilities</a> 
+                  
 
                  <form method="post" action="{{ route('student.destroy',$student->id) }}">
                    @csrf
