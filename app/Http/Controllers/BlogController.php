@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::get();
+        $blogs = Blog::get(); 
         return view('admin.blog.index',compact('blogs'));
     }
 
