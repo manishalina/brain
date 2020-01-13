@@ -94,6 +94,18 @@ class DashboardController extends Controller
     public function user_dashboard()
     {
         $student = User::where('id',Auth::user()->id)->first();
-         return view('user.profile',compact('student'));
+        if($student->abilities){
+            $abilities = explode(',', $student->abilities);
+        }else{
+            $abilities = array(0,0,0,0);
+        }
+        if($student->interest){
+            $interest = unserialize($student->interest);
+        }else{
+            $interest = array(0,0,0,0,0,0);
+        }
+        arsort($interest);
+        return view('user.profile',compact('student','abilities','interest'));
+    
     }
 }

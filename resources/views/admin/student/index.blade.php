@@ -86,9 +86,9 @@ $name1 = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal
                   <td>
                      @if($student->interest)
                      <?php
-                      $arr = explode(',', $student->interest);
+                      $arr = unserialize($student->interest);
                       foreach($arr as $key => $value) { ?>
-                        <li><?= $name[$key].' : '.$value; ?></li>
+                        <li><?= $key.' : '.$value; ?></li>
                       <?php } ?>
                      @else
                      <span class="badge badge-success">NA</span>

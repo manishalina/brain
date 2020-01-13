@@ -60,19 +60,25 @@
             	</div>
             </div>
 
-            <div class="row" style="background: #ccc">
+            <div class="row">
             	<div class="col-sm-12"><h4>Your Top Interests:</h4></div>
             	<div class="col-sm-3">
-            	<table class="table">
+            	<table class="">
             		<thead>
             			<tr>
             				<th>Interest Traits</th>
             			</tr>
             		</thead>
             		<tbody>
-            			<tr>
-            				<td>Realistic</td>
-            			</tr>
+                              <?php
+                              $i=0;
+                                    foreach ($interest as $key => $value) { if($i<2){ $class="badge badge-success";}else{$class ="";} ?>
+                                          <tr>
+                                    <td class="<?= $class ?>"><?=  $key ?></td>
+                              </tr>
+                                    <?php $i++; }
+                              ?>
+            			<!-- 
             			<tr>
             				<td>Investigative</td>
             			</tr>
@@ -92,7 +98,7 @@
 
             			<tr>
             				<td>Conventional</td>
-            			</tr>
+            			</tr> -->
 
             		</tbody>
             	</table>
@@ -100,7 +106,10 @@
             	<div class="col-sm-9">
                    
                   </div>
+
             </div>
+            <br/>
+                  <br/>
 
             <div class="form-group">
             	<div>Your top two interest traits are Realistic &amp; Investigative</div>
@@ -120,19 +129,19 @@
             			<tbody>
             				<tr>
             					<td>Numerical Ability</td>
-            					<td>20</td>
+            					<td><?= $abilities[0] ?></td>
             				</tr>
             				<tr>
             					<td>Reasoning</td>
-            					<td>20</td>
+            					<td><?= $abilities[1] ?></td>
             				</tr>
             				<tr>
             					<td>Spelling &amp; language</td>
-            					<td>20</td>
+            					<td><?= $abilities[2] ?></td>
             				</tr>
             				<tr>
             					<td>Verbal Reasoning</td>
-            					<td>20</td>
+            					<td><?= $abilities[3] ?></td>
             				</tr>
             			</tbody>
             		</table>
@@ -168,7 +177,7 @@
 var dataItem =   [];
 <?php
 $name = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal Reasoning");
-$abilities = array(90,20,30,40);
+//$abilities = $abilities;
 foreach ($abilities as $key => $abilitie) { ?>
       dataItem.push({ y: <?= $abilitie ?>, label: '<?= $name[$key] ?>' });
 <?php }

@@ -232,15 +232,16 @@ class StudentController extends Controller
              
              $id=$data['id'];
              $student = User::findOrFail($id);
+             $name = array("Realistic","Investigative","Artistic","Social","Enterprising","Conventional");
              $first = $data['first']?$data['first']:0;
              $second = $data['second']?$data['second']:0;
              $third = $data['third']?$data['third']:0;
              $four = $data['four']?$data['four']:0;
              $five = $data['five']?$data['five']:0;
              $six = $data['six']?$data['six']:0;
-             $interest = array($first,$second,$third,$four,$five,$six);
+             $interest = array($name[0]=>$first,$name[1]=>$second,$name[2]=>$third,$name[3]=>$four,$name[4]=>$five,$name[5]=>$six);
             $str =implode(',', $interest);
-            $student->interest = $str;
+            $student->interest = serialize($interest);
              $udate = $student->save();
             if(isset($udate)) {
                 return redirect()->route('student.index')->with('message',
@@ -263,6 +264,7 @@ class StudentController extends Controller
              $second = $data['second']?$data['second']:0;
              $third = $data['third']?$data['third']:0;
              $four = $data['four']?$data['four']:0;
+
             $interest = array($first,$second,$third,$four);
             $str =implode(',', $interest);
             $student->abilities = $str;
