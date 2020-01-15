@@ -1,0 +1,1 @@
+<h1>Hello User ! Thnak you to subscribe us. We will contact you soon. </h1>
