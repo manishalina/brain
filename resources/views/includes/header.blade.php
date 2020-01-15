@@ -49,9 +49,9 @@
 									</li>
 									<li class="dropdown"><a href="#">Program for Students</a>
 									<ul>
-									<li><a href="{{URL('grade-eight')}}">8thGrade</a></li>
-									<li><a href="{{URL('grade-ninth')}}">9th& 10th Grade</a></li>
-									<li><a href="{{URL('grade-eleven')}}">11th& 12thGrade</a></li>
+									<li><a href="{{URL('grade-eight')}}">8th Grade</a></li>
+									<li><a href="{{URL('grade-ninth')}}">9th & 10th Grade</a></li>
+									<li><a href="{{URL('grade-eleven')}}">11th & 12th Grade</a></li>
 									</ul>
 									</li>
 									<li class="dropdown"><a href="#">Program for Institutes </a>
@@ -85,7 +85,7 @@
 										@endguest
 										</ul>
 									</li>
-									<li><a href="{{route('contact') }}">Contact US</a></li>
+									<li><a href="{{route('contact') }}">Contact Us</a></li>
 								</ul>
 							</div>
 						</nav>
@@ -132,9 +132,9 @@
 								</li>
 								<li class="dropdown"><a href="#">Program for Students</a>
 									<ul>
-										<li><a href="{{URL('grade-eight')}}">8thGrade</a></li>
-										<li><a href="{{URL('grade-ninth')}}">9th& 10th Grade</a></li>
-										<li><a href="{{URL('grade-eleven')}}">11th& 12thGrade</a></li>
+										<li><a href="{{URL('grade-eight')}}">8th Grade</a></li>
+										<li><a href="{{URL('grade-ninth')}}">9th & 10th Grade</a></li>
+										<li><a href="{{URL('grade-eleven')}}">11th & 12th Grade</a></li>
 									</ul>
 								</li>
 								<li class="dropdown"><a href="#">Program for Institutes </a>
@@ -168,7 +168,7 @@
 										@endguest
 									</ul>
                                 </li>
-                                	<li><a href="{{route('contact') }}">Contact US</a></li>
+                                	<li><a href="{{route('contact') }}">Contact Us</a></li>
                             </ul>
                       </div>
                     </nav><!-- Main Menu End-->

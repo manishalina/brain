@@ -10,7 +10,7 @@
             <div class="demoescon mt-4">
                 <ul class="list-inline text-center">
                     <li class="list-inline-item">
-                      <input type="text" class="form-control" placeholder="Enter your email" style="height: 45px;float: left;width: 58%;" id="subscribe_email" name="subscribe_email"/> <button class="theme-btn btn-style-eight" onclick="subscribe()" style="float: right;">Connect us</button>
+                      <input type="text" class="form-control" placeholder="Enter your email" style="height: 45px;float: left;width: 58%;" id="subscribe_email" name="subscribe_email"/> <button class="theme-btn btn-style-eight" onclick="subscribe()" style="float: right;" id="subscribebtn" >Connect us</button>
                       <span id="subscribe_error"></span>
                     </li>
                     
@@ -33,7 +33,7 @@
                             <span class="icon flaticon-creativity"></span>
                         </div>
                         <h6> Identify Yourself </h6>
-                        <div class="text">Give a boast to your interests. Know your potential andstrengths.Recognize areas of interest and your traits that will help you in the long run
+                        <div class="text">Give a boast to your interests. Know your potential and strengths.Recognize areas of interest and your traits that will help you in the long run.
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                         <div class="icon-box">
                             <span class="icon flaticon-diamond"></span>
                         </div>
-                        <h6> BestFit Streams </h6>
+                        <h6> Best-Fit Streams </h6>
                         <div class="text">Choice and combination of subject in which you can excel and make a mark.</div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                              
                             <h2>Our Mission and Goal</span></h2>
                         </div>
-                        <div class="bold-text">Brain Movers is an advance career guidance and assessment partner. Its counselling methodology is designed for school students of 9th grade onwards. Brain Movers helps you at arriving a career choice which best suits you , through a robut assessment and guidance process.</div>
+                        <div class="bold-text">BrainMovers is an advance career guidance and assessment partner. Its counselling methodology is designed for school students of 8th grade onwards. BrainMovers helps you at arriving a career choice which best suits you , through a robust assessment and guidance process.</div>
                         <div class="bold-text">We explore behaviours and mental processes including perception, cognition,attention, emotion, intelligence, subjective experience , motivation, brain function and personality.</div>
                     <a href="contct.php" class="theme-btn btn-style-eight">Contact now</a>                  </div>
               </div>
@@ -219,7 +219,7 @@
                   <!-- Sec Title -->
                   <div class="sec-title light centered">
                      <div class="title">OUR FEATURES</div>
-                     <h2>why choose BrainMovers </h2>
+                     <h2>Why choose BrainMovers </h2>
                   </div>
                </div>
             </div>
@@ -670,7 +670,7 @@
          <section class="testimonial-section-two">
             <div class="image-layer" style="background-image:url(images/background/22.jpg)"></div>
             <div class="auto-container">
-               <h2>Some from out <span>students</span></h2>
+               <h2>Some from our <span>students</span></h2>
                <div class="testimonial-carousel-two owl-carousel owl-theme">
                   <!-- Testimonial Block -->
                    @foreach($comments as $key=>$comment)
@@ -718,9 +718,9 @@
                <!-- Sec Title -->
                <div class="sec-title centered">
                   <div class="title"><strong>Programs</strong></div>
-                  <h2>Choose the best program  <br> to begin your<span> counseling  </span></h2>
+                  <h2>Choose the best program  <br> to begin your<span> counselling  </span></h2>
                   <div class="text">
-                     <h6>Your need for guidance and counselling can be catered when you are in 8th grade. Our programs to assist you in your decision making can be taken up anytime between 8th grade to 12th grade. However, we suggest you to start early, no later than 8th standard so that for the next four years you are able to do enough research work and analysis into what you your career will be like.</h6>
+                     <h6>Your need for guidance and counselling can be catered when you are in 8th grade. Our programs to assist you in your decision making can be taken up anytime between 8th grade to 12th grade. However, we suggest you to start early, no later than 8th standard so that for the next four years you are able to do enough research work and analysis into what your career will be like.</h6>
                   </div>
                </div>
                <!--Pricing Info Tabs-->
@@ -771,7 +771,7 @@
                                        <div class="lower-box">
                                           <ul class="price-list">
                                              <li>In- house students Guidance</li>
-                                             <li>Brain Movers Dialogue</li>
+                                             <li>BrainMovers Dialogue</li>
                                              <li>Educators Development Program</li>
                                           </ul>
                                           <a href="Programhighlights.php" class="theme-btn btn-style-eight">Click for more details</a>
@@ -860,9 +860,9 @@
             <div class="auto-container">
                <!-- Sec Title -->
                <div class="sec-title centered">
-                  <h2>Learn some new info from <br> our latest <span>news</span></h2>
+                  <h2>Deep dive into the world of careers <br> our latest <span>news/Blog</span></h2>
                   <div class="text">
-                     <h6>Article written by professional and specialist on topics that will help you understanding all about streams, careers, counselling, guidance and much more……...</h6>
+                     <h6>Articles written by professional and specialist on topics that will help you understanding all about streams, careers, counselling, guidance and much more……...</h6>
                   </div>
                </div>
                <div class="row clearfix">
@@ -935,7 +935,7 @@
                                     <span id="requestcity_error"></span>
                                  </div>
                                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <button type="button" class="theme-btn btn-style-one" onclick="requestform()">Submit request <span class="icon flaticon-share-option"></span></button>
+                                    <button type="button" class="theme-btn btn-style-one" onclick="requestform()" id="btnrequest">Submit request <span class="icon flaticon-share-option"></span></button>
                                  </div>
                               </div>
                           

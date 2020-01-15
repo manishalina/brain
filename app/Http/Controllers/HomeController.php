@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index()
     {
          $blogs = Blog::with(['userDetail'])->orderBy('id','DESC')->limit(3)->get();
-         $comments = Comment::with(['userDetail'])->orderBy('id','DESC')->get();
+         $comments = Comment::with(['userDetail'])->where('status',1)->orderBy('id','DESC')->get();
          //dd($blogs);
          return view('home', compact('blogs','comments'));
     } 

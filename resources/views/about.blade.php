@@ -27,7 +27,7 @@
         <div class="services-block-three style-two col-lg-4 col-md-6 col-sm-12">
           <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
             <div class="icon-box">
-              <span class="icon flaticon-bar-chart"></span>
+              <span class="fa fa-podcast"></span>
             </div>
             <h6 style="color:#000066"> BrainMovers Approach </h6>
             <div class="text">Empowering every student to realize their potential and acquaint them with the various avenues for building a brilliant future. Series of tests and analysis help arrive at a career and stream choice. A holistic approach to providing the parent and child a platform for comprehensive discussion on careers.</div>
@@ -38,7 +38,7 @@
         <div class="services-block-three style-two col-lg-4 col-md-6 col-sm-12">
           <div class="inner-box wow fadeIn" data-wow-delay="300ms" data-wow-duration="1500ms" style="height:450px">
             <div class="icon-box">
-              <span class="icon flaticon-board"></span>
+              <span class="icon flaticon-target"></span>
             </div>
             <h6 style="color:#000066"> BrainMovers Goal </h6>
             <div class="text">Our purpose is to provide an integrated and systematic academic guidance programme. Besides, deliver a proactive design that is consecutive and developmental to help students pave a career path with ease and confidence.</div>
@@ -49,7 +49,7 @@
         <div class="services-block-three style-two col-lg-4 col-md-12 col-sm-12">
           <div class="inner-box wow fadeIn" data-wow-delay="600ms" data-wow-duration="1500ms" style="height:450px">
             <div class="icon-box">
-              <span class="icon flaticon-student"></span>
+              <span class="icon flaticon-network-1"></span>
             </div>
             <h6 style="color:#000066"> BrainMovers Drive </h6>
             <div class="text">Our endeavour is to present a platform that eases outthe process of deciding the stream and finally a career of your choice.We keep up our passion and constant urge to help you with the most crucial decision of your life- Careers !</div>
@@ -75,7 +75,7 @@
         <!-- Content Column -->
         <div class="image-column col-lg-6 col-md-12 col-sm-12">
           <div class="inner-column">
-            <div class="image-1"><img src="images/resource/about-2.jpg" alt=""></div>
+            <div class="image-1"><img src="{{asset('assets/images/resource/about-2.jpg')}}" alt=""></div>
             
           </div>
         </div>
@@ -88,7 +88,7 @@
              
 
             <div class="text">
-              <p>Brain Movers is an advance career guidance and assessment partner. Its counselling methodology is designed for school students of 9th grade onwards. Brain Movers helps you at arriving a career choice which best suits you , through a robut assessment and guidance process. </p>
+              <p>BrainMovers is an advance career guidance and assessment partner. Its counselling methodology is designed for school students of 8th grade onwards. BrainMovers helps you at arriving a career choice which best suits you , through a robut assessment and guidance process. </p>
               <p>
                We explore behaviours and mental processes including perception, cognition,attention, emotion, intelligence, subjective experience , motivation, brain function and personality.</p>
               <p>The process includes helping individuals discover and develop their educational, vocational and psychological potentialities, thereby achieving an optimal level of personal happiness and social usefulness.</p>
@@ -170,8 +170,8 @@
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <!--Tab Btns-->
                         <ul class="tab-btns tab-buttons clearfix">
-                            <li data-tab="#feature-expert" class="tab-btn active-btn">Shilpa Jain  <span>A postgraduate in psychology and commerce with over 13 years of experience in education industry, Shilpa is a coach, a trainer and a motivator with a flair for humor and storytelling where nothing comes in between herself and her focus. She makes the future career clear for the students at Brain Movers.</span></li>
-                            <li data-tab="#feature-brand" class="tab-btn ">Jyotsna Pareek <span>A skilled professional, Jyotsnais an MBA and comes with over 17 years of rich experience in General Management, Sales,Distribution,Operations, HR and Strategy with leadership exposure in MNC’s and startups. Having groomed in a corporate environment, managed and guided large teams, she is an astounding mentor to look up to and get the formula toaccomplish your dream career and institution.</span></li>
+                            <li data-tab="#feature-expert" class="tab-btn active-btn">Shilpa Jain  <span>A postgraduate in psychology and commerce with over 13 years of experience in education industry, Shilpa is a coach, a trainer and a motivator with a flair for humor and storytelling where nothing comes in between herself and her focus. She makes the future career clear for the students at BrainMovers.</span></li>
+                            <li data-tab="#feature-brand" class="tab-btn ">Jyotsna Pareek <span>A skilled professional, Jyotsna is an MBA and comes with over 17 years of rich experience in General Management, Sales,Distribution,Operations, HR and Strategy with leadership exposure in MNC’s and startups. Having groomed in a corporate environment, managed and guided large teams, she is an astounding mentor to look up to and get the formula toaccomplish your dream career and institution.</span></li>
                              
                         </ul>
                     </div>

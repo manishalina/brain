@@ -13,12 +13,12 @@
 	                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
 	                                <div class="footer-widget logo-widget">
 										<div class="logo">
-											<a href="index.html"><img src="{{ asset('assets/images/logo-small.png')}}" alt="" /></a>									</div>
+											<a href="./"><img src="{{ asset('assets/images/logo-small.png')}}" alt="" /></a>									</div>
 										<div class="text"><strong>Moving minds to Right Careers</strong></div>
 										<ul class="list-style-two">
-											<li><span class="icon fa fa-phone"></span> +91 942 531 3607,999 3095 707</li>
+											<li><span class="icon fa fa-phone"></span> +91-942 531 3607/999 309 8707</li>
 											<li><span class="icon fa fa-envelope"></span> connect@brainmovers.in</li>
-											<li><span class="icon fa fa-home"></span>A20, Jai Bhawani Housing Society,Phase-1, E-8 Gulmohar, Bhopal</li>
+											<li><span class="icon fa fa-home"></span>A20, Jai Bhawani Housing Society,Phase-1, E-8 Gulmohar, Bhopal -462039</li>
 										</ul>
 									</div>
 								</div>
@@ -51,6 +51,7 @@
 										<ul class="list-link">
 											 <li><a href="{{URL('contact')}}">Contact Us</a></li>
 	                                        <li><a href="{{URL('catlogs')}}">Career catalogue</a></li>
+	                                        
 											<li><a href="{{URL('terms-and-conditions')}}">Terms and Conditions</a></li>
 											<!-- <li><a href="#">Refund Policy</a></li> -->
 											 <li><a href="{{URL('disclaimer')}}">Disclaimer</a></li>

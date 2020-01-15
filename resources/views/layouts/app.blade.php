@@ -17,6 +17,11 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
    </head>
+   <style type="text/css">
+     .no-click {
+    pointer-events: none;
+}
+   </style>
    <body>
       <div class="page-wrapper">
          <!-- Preloader -->
@@ -56,13 +61,14 @@
                  $('#subscribe_error').html('<p style="color:red; font-size:15px;margin-top: 45px;">Please enter valid email id.</p>')
                  return false;
               }else{
+                $("#subscribebtn").addClass('no-click');
                  $.ajax({
                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                       type: "POST",
                       url: '<?php echo URL('/') ?>/subscribe',
                       data:{email:email,type:'subscribe',city:'',mobile:'',name:'',topic:'',message:''},
                       success: function(data){
-                       
+                       $("#subscribebtn").removeClass('no-click');
                         if(data=='save')
                         {
                             $('#subscribe_email').val('');
@@ -120,13 +126,14 @@
               }
               
               if(flag==0){
+                 $("#btnrequest").addClass('no-click');
                  $.ajax({
                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                       type: "POST",
                       url: '<?php echo URL('/') ?>/subscribe',
                       data:{name:name,email:'',city:city,mobile:mobile,type:'request',topic:'',message:''},
                       success: function(data){
-                       
+                        $("#btnrequest").removeClass('no-click');
                         if(data=='save')
                         {
                             $('#requestname').val('');
@@ -180,13 +187,14 @@
               }
               
               if(flag==0){
+                $("#btncontact").addClass('no-click');
                  $.ajax({
                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                       type: "POST",
                       url: '<?php echo URL('/') ?>/subscribe',
                       data:{name:name,email:email,city:'',mobile:'',type:'contact',topic:topic,message:message},
                       success: function(data){
-                       
+                       $("#btncontact").removeClass('no-click');
                         if(data=='save')
                         {
                             $('#name').val('');

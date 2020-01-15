@@ -8,6 +8,9 @@
                 <div class="card-header">{{ __('User Register') }}</div>
 
                 <div class="card-body">
+                     @if(Session::has('success'))
+            <div class="alert alert-success login-success"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {!! Session::get('success') !!} </div>
+          @endif
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <input type="hidden" name="type" value="2">

@@ -52,10 +52,10 @@ Guidance programs focussing on helping students in the process of career decisio
               </div>
               <div class="column col-lg-12 col-md-12 col-sm-12">
                 <ul class="list-style-one">
-                  <li><strong>Brain Movers Dialogue.</strong></li>
+                  <li><strong>BrainMovers Dialogue.</strong></li>
                                     
                                     <p>    
-  Students interface with successful professionals. Interactive dialogs and inspiring sessions with a view to create career awareness. Dialog session to build curiosity, inculcate focus & instil decision making skills to target aspirational goals.   
+  Students interface with successful professionals. Interactive dialogues and inspiring sessions with a view to create career awareness. Dialogue session to build curiosity, inculcate focus & instil decision making skills to target aspirational goals.   
 </p>
                 </ul>
               </div>
@@ -63,7 +63,7 @@ Guidance programs focussing on helping students in the process of career decisio
                 <ul class="list-style-one">
                   <li><strong>Educators Development Program.</strong></li>
                                     <p>  
-  With an aim to develop career coaching skills of educators, Our Educator Development program, helps teachers to understand and learn the nuances of career guidance. Furthermore,Educators connect and collaborate with BrainMovers to build professional relationships through school, parents and guardians. Helping teachers with leadership and organisingstudent career programs in coordination with BrainMovers.  
+  With an aim to develop career coaching skills of educators, Our educator development program, helps teachers to understand and learn the nuances of career guidance. Furthermore,educators connect and collaborate with BrainMovers to build professional relationships through school, parents and guardians. Helping teachers with leadership and organising student career programs in coordination with BrainMovers.  
 </p>
                 </ul>
               </div>

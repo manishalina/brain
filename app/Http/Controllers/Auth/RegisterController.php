@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Auth\Events\Registered;
 class RegisterController extends Controller
 {
     /*
@@ -71,11 +71,12 @@ class RegisterController extends Controller
         ];
         if(isset($data['type'])){
             $user['type'] = '2';
-            $this->redirectTo="/home";
+            $this->redirectTo="/uregister";
         }else{
             $user['type'] = '1';
         }
         
-        return User::create($user);
+         User::create($user);
+         return redirect()->back()->with('success', 'You have been successfully registered!. Please wait for the admin approval');
     }
 }

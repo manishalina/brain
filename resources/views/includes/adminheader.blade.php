@@ -79,7 +79,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Blog
-                <!-- <span class="right badge badge-danger">New</span> -->
+              
               </p>
             </a>
           </li>
@@ -89,7 +89,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Student
-               <!--  <span class="right badge badge-danger">New</span> -->
+       
               </p>
             </a>
           </li>
@@ -98,7 +98,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Faq
-               <!--  <span class="right badge badge-danger">New</span> -->
+               
               </p>
             </a>
           </li>
@@ -107,7 +107,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 News & Event
-               <!--  <span class="right badge badge-danger">New</span> -->
+             
               </p>
             </a>
           </li>
@@ -115,8 +115,8 @@
             <a href="{{ URL('requestlist') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-               Request
-               <!--  <span class="right badge badge-danger">New</span> -->
+               Request Guidance
+               
               </p>
             </a>
           </li>
@@ -126,7 +126,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                Subscribe
-               <!--  <span class="right badge badge-danger">New</span> -->
+               
               </p>
             </a>
           </li>
@@ -136,7 +136,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                Contact Us
-               <!--  <span class="right badge badge-danger">New</span> -->
+               
               </p>
             </a>
           </li>
@@ -146,11 +146,19 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Career Catalogue
-               <!--  <span class="right badge badge-danger">New</span> -->
+               
               </p>
             </a>
           </li>
-          
+           <li class="nav-item">
+            <a href="{{ URL('feedback') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Student Feedback
+              
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

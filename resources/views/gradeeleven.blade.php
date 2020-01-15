@@ -11,7 +11,7 @@
           <ul class="page-breadcrumb">
             <li><a href="./">Home</a></li>
             <li>Pages</li>
-            <li>11th-12thGrade</li>
+            <li>11th-12th Grade</li>
           </ul>
         </div>
      </div>
@@ -22,8 +22,8 @@
       <!-- Sec Title -->
       <div class="sec-title centered">
         <div class="title"><h6><strong>11th-12th Grade</strong></h6></div>
-        <h2>You have chosen your most liked stream ,its time you explore  <br><span> where these subject choices will lead you. </span></h2>
-        <div class="text"><h6>Hundreds of choices to make. Innumerable fields , courses and careers to choose from very much in the stream you have chosen. See what all you can do and build your future on.</h6></div>
+        <h2>You have chosen your most liked stream ,it's time you explore  <br><span> where these subject choices will lead you. </span></h2>
+        <div class="text"><h6>Hundreds of choices to make,innumerable fields,courses and careers to choose from very much in the stream you have chosen. See what all you can do and build your future on.</h6></div>
                 
                 
       </div>

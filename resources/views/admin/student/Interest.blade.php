@@ -37,6 +37,7 @@
           @csrf
 
   				<?php 
+          $arr1 = unserialize($student->interest);
             $arr = array(0,0,0,0,0,0);
             
   				?>
@@ -47,7 +48,7 @@
       <label>Realistic:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="first" class="form-control" placeholder="Enter Your Interests" value="<?= old('first')?old('first') :$arr[0] ?>">
+      <input type="number" name="first" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1['Realistic']?$arr1['Realistic'] :$arr[0] ?>">
     </div>
     
 
@@ -55,7 +56,7 @@
       <label>Investigative:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="second" class="form-control" placeholder="Enter Your Interests" value="<?= old('second')?old('second') :$arr[1] ?>">
+      <input type="number" name="second" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1['Investigative']?$arr1['Investigative'] :$arr[1] ?>">
     </div>
     
 
@@ -64,7 +65,7 @@
       <label>Artistic:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="third" class="form-control" placeholder="Enter Your Interests" value="<?= old('third')?old('third') :$arr[2] ?>">
+      <input type="number" name="third" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1['Artistic']?$arr1['Artistic'] :$arr[2] ?>">
     </div>
 
 
@@ -72,7 +73,7 @@
       <label>Social:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="four" class="form-control" placeholder="Enter Your Interests" value="<?= old('four')?old('four') :$arr[3] ?>">
+      <input type="number" name="four" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1['Social']?$arr1['Social'] :$arr[3] ?>">
     </div>
 
 
@@ -80,7 +81,7 @@
       <label>Enterprising:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="five" class="form-control" placeholder="Enter Your Interests" value="<?= old('five')?old('five') :$arr[4] ?>">
+      <input type="number" name="five" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1['Enterprising']?$arr1['Enterprising'] :$arr[4] ?>">
     </div>
 
 
@@ -88,10 +89,17 @@
       <label>Conventional:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="six" class="form-control" placeholder="Enter Your Interests" value="<?= old('six')?old('six') :$arr[5] ?>">
+      <input type="number" name="six" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1['Conventional']?$arr1['Conventional'] :$arr[5] ?>">
     </div>
 
-
+ <div class="col-sm-12">
+      <label>Summary:<span class="text text-danger">*</span>
+          <span class="text-danger">{{ $errors->first('first') }}</span>
+      </label>
+      <textarea class="textarea" name="interest_summary" placeholder="Place some text here"
+                          style="font-size: 14px; line-height: 28px; border: 1px solid #dddddd; padding: 10px;">{!!$student->interest_summary!!}</textarea>
+    
+    </div>
     
   </div>
 

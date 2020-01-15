@@ -37,6 +37,7 @@
           @csrf
 
   				<?php 
+            $arr1 = explode(',',$student->abilities);
             $arr = array(0,0,0,0,0,0);
             
   				?>
@@ -47,7 +48,7 @@
       <label>Numerical Ability :<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="first" class="form-control" placeholder="Enter Your Interests" value="<?= old('first')?old('first') :$arr[0] ?>">
+      <input type="number" name="first" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1[0]?$arr1[0] :$arr[0] ?>">
     </div>
     
 
@@ -55,7 +56,7 @@
       <label>Reasoning:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="second" class="form-control" placeholder="Enter Your Interests" value="<?= old('second')?old('second') :$arr[1] ?>">
+      <input type="number" name="second" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1[1]?$arr1[1] :$arr[1] ?>">
     </div>
     
 
@@ -64,7 +65,7 @@
       <label>Spelling & language:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="third" class="form-control" placeholder="Enter Your Interests" value="<?= old('third')?old('third') :$arr[2] ?>">
+      <input type="number" name="third" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1[2]?$arr1[2] :$arr[2] ?>">
     </div>
 
 
@@ -72,9 +73,15 @@
       <label>Verbal Reasoning:<span class="text text-danger">*</span>
           <span class="text-danger">{{ $errors->first('first') }}</span>
       </label>
-      <input type="number" name="four" class="form-control" placeholder="Enter Your Interests" value="<?= old('four')?old('four') :$arr[3] ?>">
+      <input type="number" name="four" class="form-control" placeholder="Enter Your Interests" value="<?= $arr1[3]?$arr1[3] :$arr[3] ?>">
     </div>
-
+ <div class="col-sm-12">
+      <label>Summary:<span class="text text-danger">*</span>
+          <span class="text-danger">{{ $errors->first('first') }}</span>
+      </label>
+       <textarea class="textarea" name="abilities_summary" placeholder="Place some text here"
+                          style="font-size: 14px; line-height: 28px; border: 1px solid #dddddd; padding: 10px;">{!!$student->abilities_summary!!}</textarea>
+    </div>
   </div>
 
                 <!-- /.form group -->

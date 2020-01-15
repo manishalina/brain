@@ -7,7 +7,7 @@
     <section style="background-image:url({{asset('assets/images/background/8.jpg')}} )" class="page-title" >
       <div class="auto-container">
       <div class="content">
-        <h1>8th<span>Grade </span></h1>
+        <h1>8th <span>  Grade </span></h1>
         <ul class="page-breadcrumb">
           <li><a href="./l">Home</a></li>
           <li>Pages</li>

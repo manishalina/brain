@@ -74,35 +74,7 @@ class StudentController extends Controller
            'password'            => Hash::make($data['password'])         
          );
         $blog =  User::create($user);
-       // //dd($client->id);
-
-        // $getWebInfo = Websitesetting::select('website_name', 'website_logo', 'email', 'address', 'mobile')->first();
-        //  //$org = Organizationmaster::find($data['OrgID']);
-        //  $content = [
-        //      'title'         => 'Registration with FirstAd', 
-        //      'body'          => 'The body of your message.',
-        //      'address'       => $getWebInfo->address,
-        //      'mobile'        => $getWebInfo->mobile,
-        //      'website_name'  => $getWebInfo->website_name,
-        //      'website_logo'  => $getWebInfo->website_logo,
-        //      'email'         => $getWebInfo->email,
-        //      'client'       => $client,
-        //      'name'          => $data['fname'].' '.$data['lname'],
-        //      'password_flag'          => true,
-        //      ];
-        // //$receiverAddress = array('manish@nrt.co.in');
-        // $receiverAddress = array($data['email']);
-        // // //return view('emails.CandidateApply',compact('content'));
-        // $mail = Mail::to($receiverAddress)->bcc('manish09.chakravarti@gmail.com')->send(new ClientMail($content) );
-        // if (count(Mail::failures()) > 0) {
-        //     //echo "There was one or more failures. They were: <br />";
-        //     foreach (Mail::failures as $email_address) {
-        //       //  echo " - $email_address <br />";
-        //     }
-        // }else {
-        //     //echo "No errors, all sent successfully!";
-        // }
-
+      
 
        if(isset($blog)) {
         return redirect()->route('student.index')
@@ -223,14 +195,13 @@ class StudentController extends Controller
 
     public function interest($id){
         $student = User::findOrFail($id);
+        
         return view('admin.student.interest', compact('student'));
     }
     public function saveinterest(Request $request){
 
              $data = $request->all();
-             print_r($data);
-             
-             $id=$data['id'];
+              $id=$data['id'];
              $student = User::findOrFail($id);
              $name = array("Realistic","Investigative","Artistic","Social","Enterprising","Conventional");
              $first = $data['first']?$data['first']:0;
@@ -239,9 +210,11 @@ class StudentController extends Controller
              $four = $data['four']?$data['four']:0;
              $five = $data['five']?$data['five']:0;
              $six = $data['six']?$data['six']:0;
+             $interest_summary = $data['interest_summary']?$data['interest_summary']:'';
              $interest = array($name[0]=>$first,$name[1]=>$second,$name[2]=>$third,$name[3]=>$four,$name[4]=>$five,$name[5]=>$six);
             $str =implode(',', $interest);
             $student->interest = serialize($interest);
+            $student->interest_summary = $interest_summary;
              $udate = $student->save();
             if(isset($udate)) {
                 return redirect()->route('student.index')->with('message',
@@ -264,10 +237,11 @@ class StudentController extends Controller
              $second = $data['second']?$data['second']:0;
              $third = $data['third']?$data['third']:0;
              $four = $data['four']?$data['four']:0;
-
-            $interest = array($first,$second,$third,$four);
-            $str =implode(',', $interest);
-            $student->abilities = $str;
+             $abilities_summary = $data['abilities_summary']?$data['abilities_summary']:'';
+             $interest = array($first,$second,$third,$four);
+             $str =implode(',', $interest);
+             $student->abilities = $str;
+             $student->abilities_summary = $abilities_summary;
              $udate = $student->save();
             if(isset($udate)) {
                 return redirect()->route('student.index')->with('message',

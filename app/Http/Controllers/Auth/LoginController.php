@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         if(isset($data['type'])){
             $this->redirectTo = "/profile";
-            return ['email' => $request->email, 'password' => $request->password, 'type' => '2'];
+            return ['email' => $request->email, 'password' => $request->password, 'type' => '2', 'IsVerify' => '1'];
         }else{
 
             return ['email' => $request->email, 'password' => $request->password, 'type' => '1'];    

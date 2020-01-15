@@ -44,14 +44,14 @@
           <div class="info-column col-lg-7 col-md-12 col-sm-12">
             <div class="inner-column">
                
-                            <div class="text">Please contact us using the information below. For additional information on our management consulting services, please visit the appropriate page on our site.</div>
+                            <div class="text">Please contact us using the information below. For additional information on our consulting services, please visit the appropriate page on our site.</div>
               <ul class="list-style-five">
-                <li><span class="icon fa fa-building"></span> A20, Jai Bhawani Housing Society, <br> Phase-1, E-8 Gulmohar, Bhopal<br> Madhya Pradesh</li>
+                <li><span class="icon fa fa-building"></span> A20, Jai Bhawani Housing Society, <br> Phase-1, E-8 Gulmohar, Bhopal-462039<br> Madhya Pradesh</li>
                 <li><span class="icon fa fa-fax"></span>+91 942 531 3607</li>
 
-                <li><span class="icon fa fa-fax"></span>+91 999 309 5707</li>
+                <li><span class="icon fa fa-fax"></span>+91 999 309 8707</li>
                 <li><span class="icon fa fa-envelope-o"></span>support@brainmovers.in</li>
-                <li><span class="icon fa fa-envelope-o"></span>Contact@brainmovers.in</li>
+                <li><span class="icon fa fa-envelope-o"></span>contact@brainmovers.in</li>
               </ul>
             </div>
           </div>
@@ -88,7 +88,7 @@
                   </div>
                   
                   <div class="form-group">
-                    <button type="button" onclick="contactus()" class="theme-btn">Submit</button>
+                    <button type="button" id="btncontact" onclick="contactus()" class="theme-btn">Submit</button>
                   </div>                                        
                   
                

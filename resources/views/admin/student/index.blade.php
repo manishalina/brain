@@ -160,7 +160,7 @@ $name1 = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal
                   <i class="fa fa-edit"></i>Career</a> 
                    |
                   <a href="{{ URL('feedback/'.$student->id) }}"  style="margin-right: 3px;" title="Edit">
-                  <i class="fa fa-edit"></i>Feedback</a>
+                  <i class="fa fa-edit"></i>Comment/Summary </a>
                    |
                   <a href="{{ URL('traits/'.$student->id) }}"  style="margin-right: 3px;" title="Edit">
                   <i class="fa fa-edit"></i>Traits</a>

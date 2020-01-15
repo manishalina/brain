@@ -7,11 +7,11 @@
     <section style="background-image:url({{asset('assets/images/background/8.jpg')}} )" class="page-title" >
       <div class="auto-container">
       <div class="content">
-        <h1>9th-10th<span>Grade </span></h1>
+        <h1>9th-10th<span>  Grade </span></h1>
         <ul class="page-breadcrumb">
           <li><a href="index.html">Home</a></li>
           <li>Pages</li>
-          <li>9th-10thGrade</li>
+          <li>9th-10th Grade</li>
         </ul>
       </div>
         </div>
@@ -22,7 +22,7 @@
       <!-- Sec Title -->
       <div class="sec-title centered">
         <div class="title"><h6><strong>9th-10th Grade</strong></h6></div>
-        <h2>Its time you begin to explore career options  <br>   <span> in various streams </span></h2>
+        <h2>It's time you begin to explore career options  <br>   <span> in various streams </span></h2>
         <div class="text"><h6>What will possibly interest you and keep you motivated for the next 40 years of your life….is your career. Explore yourself, explore careers, choose the right stream & arrive at a career that best fits you. </h6></div>
                 
                 

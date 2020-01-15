@@ -41,6 +41,57 @@ border-top-right-radius: 7px;
 border-bottom-right-radius: 7px;
 display:block;
 }
+
+.arrow {
+  width: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  top: 6px;
+  right: 11px;
+}
+
+.arrow .outer {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #000000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.arrow .inner {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #ffffff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+
+ .message-body {
+/*  float: left;*/
+  width: 100%;
+  min-height: 150px;
+  height: auto;
+  border: 1px solid #CCC;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 6px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.message-body p {
+  margin: 0;
+}
 </style>
  <!--Page Title-->
     <section class="page-title" style="background-image:url({{asset('assets/images/background/8.jpg')}} )">
@@ -322,14 +373,15 @@ display:block;
             <div class="card-body">
 
                    <div class="row">
-                        <div class="col-sm-12"><h4>Your Top Interests:</h4></div>
+                    <div class="col-md-4">
+                      <div class="col-sm-12"><h4>Your Top Interests:</h4></div>
                         <div class="col-sm-3">
                         <table class="table">
-                        <thead>
+                       <!--  <thead>
                         <tr>
                         <th>Interest Traits</th>
                         </tr>
-                        </thead>
+                        </thead> -->
                         <tbody>
 
                         <?php
@@ -342,15 +394,35 @@ display:block;
                         </tbody>
                         </table>
                         </div>
-                        <div class="col-sm-9">
-
+                       
+                    </div>
+                        
+                       <div class="col-md-6">
+                          <div class="col-sm-7">
+                          <div id="chartInterests" style="height: 300px;"></div>          
+                          </div>
                         </div>
-
+               </div>
+               <div class="row"  >
+                <div class="col-md-12" style="margin-top: 30px;">
+                  <?php
+                      if($student->interest_summary)
+                      {
+                    ?>
+                    <div class="arrow">
+                      <div class="outer"></div>
+                      <div class="inner"></div>
+                    </div>
+                    <div class="message-body">
+                      <p>{!!$student->interest_summary!!}</p>
+                    </div>
+                    <?php } ?>
+                  </div>
                </div>
             </div>
       </div>
 </div>
-<div class="card">
+<!-- <div class="card">
       <div class="card-header" id="headingThree">
             <h5 class="mb-0">
                   <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -367,7 +439,7 @@ display:block;
                   </div>
             </div>
       </div>
-</div>
+</div> -->
 <div class="card">
       <div class="card-header" id="headingFour">
             <h5 class="mb-0">
@@ -378,7 +450,8 @@ display:block;
       </div>
       <div id="collapseFour" class="collapse fade" aria-labelledby="headingFour" data-parent="#accordionExample">
             <div class="card-body">
-                  <div class="row form-group">
+                  <div class="row">
+                    <?php  $maxval=max($abilities); ?>
                         <div class="col-sm-5">
                         <table class="table">
                         <thead>
@@ -388,31 +461,46 @@ display:block;
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr <?php if($maxval==$abilities[0]){ echo 'class="text-success"';} ?>>
                               <td>Numerical Ability</td>
-                              <td><?= $abilities[0] ?></td>
+                              <td ><?= $abilities[0] ?></td>
                         </tr>
-                        <tr>
+                        <tr <?php if($maxval==$abilities[1]){ echo 'class="text-success"';} ?>>
                               <td>Reasoning</td>
-                              <td><?= $abilities[1] ?></td>
+                              <td ><?= $abilities[1] ?></td>
                         </tr>
-                        <tr>
+                        <tr <?php if($maxval==$abilities[2]){ echo 'class="text-success"';} ?>>
                               <td>Spelling &amp; language</td>
-                              <td><?= $abilities[2] ?></td>
+                              <td ><?= $abilities[2] ?></td>
                         </tr>
-                        <tr>
-                              <td>Verbal Reasoning</td>
-                              <td><?= $abilities[3] ?></td>
+                        <tr <?php if($maxval==$abilities[3]){ echo 'class="text-success"';} ?>>
+                              <td >Verbal Reasoning</td>
+                              <td ><?= $abilities[3] ?></td>
                         </tr>
                         </tbody>
                         </table>
                         </div>
-<div class="col-sm-7">
-<div id="chartContainer" style="height: 300px;"></div>          
-</div>
-</div>
+                     <div class="col-sm-7">
+                      <div id="chartContainer" style="height: 300px;"></div>          
+                     </div>
+                  </div>
 
-<div class="form-group">In terms of aptitude, you have a strong numerical ability which can</div>
+               <div class="row"  >
+                <div class="col-md-12" style="margin-top: 80px;">
+                  <?php
+                      if($student->abilities_summary)
+                      {
+                    ?>
+                    <div class="arrow">
+                      <div class="outer"></div>
+                      <div class="inner"></div>
+                    </div>
+                    <div class="message-body">
+                      <p>{!!$student->abilities_summary!!}</p>
+                    </div>
+                    <?php } ?>
+                  </div>
+               </div>
             </div>
       </div>
 </div>
@@ -436,7 +524,7 @@ display:block;
       <div class="card-header" id="headingFour">
             <h5 class="mb-0">
       <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#Comment" aria-expanded="false" aria-controls="Comment">
-        <i class="fa fa-angle-double-right mr-3"></i> Comment
+        <i class="fa fa-angle-double-right mr-3"></i> Summary
       </button>
   </h5>
       </div>
@@ -456,7 +544,7 @@ display:block;
       <div class="card-header" id="headingFour">
             <h5 class="mb-0">
                   <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#Favourable" aria-expanded="false" aria-controls="Favourable">
-                    <i class="fa fa-angle-double-right mr-3"></i> Favourable 
+                    <i class="fa fa-angle-double-right mr-3"></i> Subject Selection 
                   </button>
             </h5>
       </div>
@@ -597,35 +685,58 @@ display:block;
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
 var dataItem =   [];
+var dataItem1 =   [];
 <?php
 $name = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal Reasoning");
-//$abilities = $abilities;
+//$abilities = $abilities;interest
 foreach ($abilities as $key => $abilitie) { ?>
 dataItem.push({ y: <?= $abilitie ?>, label: '<?= $name[$key] ?>' });
+<?php } 
+foreach ($interest as $key => $inte) {?>
+  dataItem1.push({ y: <?= $inte ?>, label: '<?= $key ?>' });
 <?php }
+
 ?>
 
 window.onload = function () {
 var chart = new CanvasJS.Chart("chartContainer", {
-animationEnabled: true,
-theme: "light2", // "light1", "light2", "dark1", "dark2"
-title:{
-text: "Your top Abilities:"
-},
-axisY: {
-title: ""
-},
-data: [{        
-type: "column",  
-showInLegend: true, 
-legendMarkerColor: "grey",
-legendText: "Abilities",
-dataPoints: dataItem
-}]
+        animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        title:{
+        text: "Your top Abilities:"
+        },
+        axisY: {
+        title: ""
+        },
+        data: [{        
+        type: "column",  
+        showInLegend: true, 
+        legendMarkerColor: "grey",
+        legendText: "Abilities",
+        dataPoints: dataItem
+        }]
+        });
+        chart.render();
+var chartInterests = new CanvasJS.Chart("chartInterests", {
+        animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        title:{
+        text: "Your Top Interests:"
+        },
+        axisY: {
+        title: ""
+        },
+        data: [{        
+        type: "column",  
+        showInLegend: true, 
+        legendMarkerColor: "grey",
+        legendText: "Interests",
+        dataPoints: dataItem1
+        }]
 });
-chart.render();
-
+chartInterests.render();
 }
+
 function editprofile()
 {
   $('#editprofile').show();
