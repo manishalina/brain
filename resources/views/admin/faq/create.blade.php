@@ -63,6 +63,7 @@
   				<?php  
   				 $title = $faq->title;
   				 $description = $faq->description;
+           $faq_type = $faq->faq_type;
   				// $mobile = $client->mobile;
   				// $email = $client->email;
   				// $address = $client->address;
@@ -77,9 +78,19 @@
   				<?php 
   				  $title = '';
             $description = '';
+            $faq_type = '';
   				?>
 				@endif
-
+                 <div class="form-group">
+                 <label>FAQ Type:</label>
+                 <select class="form-control" name="faq_type" required="">
+                   <option value="">--Select--</option>
+                   <option value="1" {{($faq_type==1)?'selected':''}}>Website</option>
+                   <option value="2" {{($faq_type==2)?'selected':''}}>Student</option>
+                   <option value="3" {{($faq_type==3)?'selected':''}}>Institute</option>
+                 </select>
+                  <!-- /.input group -->
+                </div>
                 <!-- phone mask -->
                 <div class="form-group">
                  <label>Title:</label>

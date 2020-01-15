@@ -53,6 +53,7 @@
                 <thead>
                 <tr>
                   <th>SNO</th>
+                  <th>FAQ Type</th>
                   <th>Title</th>
                   <th>Description</th>
                   <th>Action</th>
@@ -63,6 +64,17 @@
                 @foreach($faqs as $key=>$faq)
                 <tr>
                   <td>{{$key+1}}</td>
+                  <td> 
+                    @if($faq->faq_type==1)
+                        Website
+                    @elseif($faq->faq_type==2) 
+                       Student
+                    @elseif($faq->faq_type==3)
+                       Institute
+                      @endif 
+                            
+
+                     </td>
                   <td>{{$faq->title}}</td>
                   <td>{!! $faq->description !!}</td>
                   <td>

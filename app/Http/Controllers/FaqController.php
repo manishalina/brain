@@ -46,6 +46,7 @@ class FaqController extends Controller
         $faq =  Faq::create([          
           'title'                => $data['title'],
           'description'          => $data['description'],        
+          'faq_type'          => $data['faq_type'],        
          ]);
        if(isset($faq)) {
         return redirect()->route('faq.index')
@@ -99,6 +100,7 @@ class FaqController extends Controller
         $data = $request->all();
         $faq->title = $request->input('title');
         $faq->description = $request->input('description');
+        $faq->faq_type = $request->input('faq_type');
         $faq = $faq->save();
        if(isset($faq)) {
         return redirect()->route('faq.index')

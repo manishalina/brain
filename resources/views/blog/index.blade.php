@@ -70,7 +70,7 @@
       <div class="clearfix">
         
         <div class="pull-left">
-          <h2>Request for <span>quote</span></h2>
+          <h2>Request for <span>Guidance</span></h2>
         </div>
         <div class="pull-right">
           <a href="contact.html" class="theme-btn btn-style-five">Request now <span class="icon fa fa-arrow-right"></span></a>

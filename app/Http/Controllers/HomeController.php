@@ -32,7 +32,7 @@ class HomeController extends Controller
     } 
     public function faq()
     {
-         $faqs = Faq::orderBy('id','DESC')->get();
+         $faqs = Faq::Where('faq_type',1)->orderBy('id','DESC')->get();
          return view('faq.index', compact('faqs'));
     }
 
@@ -79,11 +79,13 @@ class HomeController extends Controller
     } 
     public function gradeeight()
     {
-            return view('gradeeight');
+        $faqs = Faq::Where('faq_type',2)->orderBy('id','DESC')->get();
+            return view('gradeeight',compact('faqs'));
     } 
     public function gradeninth()
     {
-            return view('gradeninth');
+        $faqs = Faq::Where('faq_type',2)->orderBy('id','DESC')->get();
+            return view('gradeninth',compact('faqs'));
     }
     public function privacypolicy()
     {
@@ -99,16 +101,19 @@ class HomeController extends Controller
     }
     public function gradeeleven()
     {
-            return view('gradeeleven');
+        $faqs = Faq::Where('faq_type',2)->orderBy('id','DESC')->get();
+            return view('gradeeleven',compact('faqs'));
     }
 
     public function programhighlights()
     {
-            return view('programhighlights');
+        $faqs = Faq::Where('faq_type',3)->orderBy('id','DESC')->get();
+            return view('programhighlights',compact('faqs'));
     }
     public function programfeatures()
     {
-            return view('programfeatures');
+        $faqs = Faq::Where('faq_type',3)->orderBy('id','DESC')->get();
+            return view('programfeatures',compact('faqs'));
     }
 
     public function login()

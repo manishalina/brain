@@ -98,6 +98,40 @@
       </div>
     </div>
   </section>
+  <section style="margin-top:10px; margin-bottom: 20px;">
+<div class="row">
+    <div class="col-10 mx-auto">
+     <h1  style="font-size:30px; margin-bottom: 20px; border-bottom: 1px solid #bdbcbc">Faq</h1>
+        <div class="accordion" id="accordionExample">
+
+         @if(count($faqs)>0)
+         @foreach($faqs as $key=>$faq)
+
+            <div class="card">
+                  <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#{{$faq->id}}" aria-expanded="false" aria-controls="{{$faq->id}}">
+                              <i class="fa fa-angle-double-right mr-3"></i> {{$faq->title}}
+                            </button>
+                        </h5>
+                  </div>
+                  <div id="{{$faq->id}}" <?php if($key==0){ echo 'class="collapse show fade"';}else{ echo 'class="collapse  fade"';} ?>  aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                        <div style="min-height: 100px; padding: 5px;">
+                              {!!$faq->description!!}
+                        </div>
+                        </div>
+                  </div>
+            </div>
+             @endforeach
+
+         @else
+          <div style="font-size: 16px;color:red;text-align: center;width: 100%;">{{'No Faq Listed Yet.'}}</div>
+        @endif
+        </div>
+    </div>      
+</div>
+</section>
     <!--End Page Title-->
   
   <!-- Case Section Three-->
