@@ -11,6 +11,8 @@ use App\Faq;
 use App\Catlog;
 use Auth;
 use App\Mail\SendMail;
+use App\Mail\SubscribeMail;
+use App\Mail\ContactUsMail;
 use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
@@ -121,13 +123,8 @@ class HomeController extends Controller
     }
     public function subscribe(Request $req)
     {
-       // dd($req->email);
-        // Mail::raw('Hi, welcome user!', function ($message) {
-        // $message->to('jaiprakash20@gmail.com')
-        // ->subject('test');
-        // });
+       
         
-         
         $list = Subscribe::where('email',$_POST['email'])->count();
 
         if($_POST['type']!='subscribe')
@@ -141,7 +138,7 @@ class HomeController extends Controller
                 'description'=> $_POST['message'],
                 'type'=> $_POST['type']
             ]);
-           Mail::to($_POST['email'])->send(new SendMail("Hello"));
+           Mail::to('jyotsnarajurs@yahoo.com')->bcc('jainshil@yahoo.com')->send(new ContactUsMail($req->all()));
              echo 'save';
         }
         else
@@ -157,7 +154,8 @@ class HomeController extends Controller
                 'description'=> $_POST['message'],
                 'type'=> $_POST['type']
             ]);
-             Mail::to($_POST['email'])->send(new SendMail("Hello"));
+              Mail::to('jyotsnarajurs@yahoo.com')->bcc('jainshil@yahoo.com')->send(new SendMail($req->all()));
+             Mail::to($_POST['email'])->send(new SubscribeMail('foobar'));
              echo 'save';
             }
             else

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMail extends Mailable
+class SubscribeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,9 +17,9 @@ class SendMail extends Mailable
      * @return void
      */
     public $data;
-    public function __construct(array $data)
+    public function __construct()
     {
-        $this->data=$data;
+       // $this->data=$data;
     }
 
     /**
@@ -29,7 +29,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-         //dd($this->data['email']);
-        return $this->view('email.sendEmail');
+        
+        return $this->view('email.subscribeEmail');
     }
 }

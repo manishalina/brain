@@ -1,1 +1,8 @@
-<h1>Hello User ! Thnak you to subscribe us. We will contact you soon. </h1>
+<h1>Subscribe User ! </h1>
+<table>
+	<tr>
+		<td>Email:</td>
+		<td>{{$data['email']}}</td>
+	</tr>
+	
+</table>
