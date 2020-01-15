@@ -53,11 +53,13 @@
                 <thead>
                 <tr>
                   <th>SNO</th>
-                  <th>Photo</th>
+                  <!-- <th>Photo</th> -->
                   <th>Name</th>
                   <th>Email</th>
                   <th>Interest</th>
                   <th>Abilities</th>
+                  <th>Career</th>
+                  <th>Subject</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -70,7 +72,7 @@ $name1 = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal
                 @foreach($students as $key=>$student)
                 <tr>
                   <td>{{$key+1}}</td>
-                  <td>
+                <!--   <td>
                     <?php
                     $image='';
                     if($student->image !=''){
@@ -80,19 +82,21 @@ $name1 = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal
                     }
                     ?>
                     <img style="height: 80px;width: 80px;" src="{{asset($image)}}">
-                  </td>
+                  </td> -->
                   <td>{{$student->name}}</td>
                   <td>{{ $student->email }}</td>
                   <td>
-                     @if($student->interest)
+                    @if($student->interest)
                      <?php
                       $arr = unserialize($student->interest);
                       foreach($arr as $key => $value) { ?>
                         <li><?= $key.' : '.$value; ?></li>
                       <?php } ?>
                      @else
-                     <span class="badge badge-success">NA</span>
-                   @endif
+                      <span class="badge badge-success">NA</span>
+                     @endif
+                    
+                   
                   </td>
                   <td>
                      @if($student->abilities)
@@ -100,6 +104,28 @@ $name1 = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal
                       $arr = explode(',', $student->abilities);
                       foreach($arr as $key => $value) { ?>
                         <li><?= $name1[$key].' : '.$value; ?></li>
+                      <?php } ?>
+                     @else
+                     <span class="badge badge-success">NA</span>
+                   @endif
+                  </td>
+                  <td>
+                     @if($student->career)
+                        <?php
+                      $arr = explode(',', $student->career);
+                      foreach($arr as $key => $value) { ?>
+                        <li><?= $value; ?></li>
+                      <?php } ?>
+                     @else
+                     <span class="badge badge-success">NA</span>
+                   @endif
+                  </td>
+                  <td>
+                     @if($student->subject)
+                        <?php
+                      $arr = explode(',', $student->subject);
+                      foreach($arr as $key => $value) { ?>
+                        <li><?= $value; ?></li>
                       <?php } ?>
                      @else
                      <span class="badge badge-success">NA</span>
@@ -120,14 +146,26 @@ $name1 = array("Numerical Ability","Reasoning","Spelling &amp; language","Verbal
                    <a href="{{ URL('verify/'.$student->id) }}" class="btn btn-warning pull-left" style="margin-right: 3px;" title="Edit">
                   <i class="fa fa-edit"></i>Verify</a> 
                    @endif
-
-                   <a href="{{ URL('interest/'.$student->id) }}" class="btn btn-warning pull-left" style="margin-right: 3px;" title="Edit">
+                    |
+                   <a href="{{ URL('interest/'.$student->id) }}" style="margin-right: 3px;" title="Edit">
                   <i class="fa fa-edit"></i>Interest</a> 
-
-                  <a href="{{ URL('abilities/'.$student->id) }}" class="btn btn-warning pull-left" style="margin-right: 3px;" title="Edit">
+                    |
+                  <a href="{{ URL('abilities/'.$student->id) }}"  style="margin-right: 3px;" title="Edit">
                   <i class="fa fa-edit"></i>Abilities</a> 
+                    |
+                    <a href="{{ URL('subject/'.$student->id) }}"  style="margin-right: 3px;" title="Edit">
+                  <i class="fa fa-edit"></i>Subject </a> 
+                   |
+                    <a href="{{ URL('career/'.$student->id) }}"  style="margin-right: 3px;" title="Edit">
+                  <i class="fa fa-edit"></i>Career</a> 
+                   |
+                  <a href="{{ URL('feedback/'.$student->id) }}"  style="margin-right: 3px;" title="Edit">
+                  <i class="fa fa-edit"></i>Feedback</a>
+                   |
+                  <a href="{{ URL('traits/'.$student->id) }}"  style="margin-right: 3px;" title="Edit">
+                  <i class="fa fa-edit"></i>Traits</a>
                   
-
+                   |
                  <form method="post" action="{{ route('student.destroy',$student->id) }}">
                    @csrf
                   <input type="hidden" name="_method" value="delete" />

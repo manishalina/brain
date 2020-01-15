@@ -31,7 +31,7 @@
 											<li><a href="./">Home</a></li>
 											<li><a href="#">Services</a></li>
 											<li><a href="{{URL('about')}}">About us</a></li>
-											<li><a href="#">FAQ</a></li>
+											<li><a href="{{URL('faqs')}}">FAQ</a></li>
 											<li><a href="{{URL('blogs')}}">Blog</a></li>
 											<li><a href="{{URL('contact')}}">Contact</a></li>
 										</ul>
@@ -50,7 +50,7 @@
 										<h4>Support</h4>
 										<ul class="list-link">
 											 <li><a href="{{URL('contact')}}">Contact Us</a></li>
-	                                        <li><a href="#">Career catalogue</a></li>
+	                                        <li><a href="{{URL('catlogs')}}">Career catalogue</a></li>
 											<li><a href="{{URL('terms-and-conditions')}}">Terms and Conditions</a></li>
 											<!-- <li><a href="#">Refund Policy</a></li> -->
 											 <li><a href="{{URL('disclaimer')}}">Disclaimer</a></li>

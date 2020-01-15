@@ -43,22 +43,22 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+     <!--  <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8"> -->
+      <span class="brand-text font-weight-light">Admin Panel</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+   <!--    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
         </div>
-      </div>
+      </div> -->
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -79,7 +79,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Blog
-                <span class="right badge badge-danger">New</span>
+                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
@@ -89,11 +89,67 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Student
-                <span class="right badge badge-danger">New</span>
+               <!--  <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
-          
+           <li class="nav-item">
+            <a href="{{ URL('faq') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Faq
+               <!--  <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ URL('news') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                News & Event
+               <!--  <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a href="{{ URL('requestlist') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Request
+               <!--  <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+
+           <li class="nav-item">
+            <a href="{{ URL('subscribelist') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Subscribe
+               <!--  <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+
+           <li class="nav-item">
+            <a href="{{ URL('contactlist') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Contact Us
+               <!--  <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+
+           <li class="nav-item">
+            <a href="{{ URL('catlog') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Career Catalogue
+               <!--  <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
           
         </ul>
       </nav>

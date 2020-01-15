@@ -4,7 +4,7 @@
 
     
   <!--Page Title-->
-    <section style="padding: 179px 0px 90px;background-image:url({{asset('assets/images/background/8.jpg')}} )" class="page-title" >
+    <section style="background-image:url({{asset('assets/images/background/8.jpg')}} )" class="page-title" >
       <div class="auto-container">
       <div class="content">
         <h1>8th<span>Grade </span></h1>

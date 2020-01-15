@@ -1,12 +1,28 @@
-<!-- Main Header-->
-    <header class="main-header header-style-three">
+<!-- Main Header--> 
+    <header class="<?php if(Route::current()->getName()=='home') { echo 'main-header header-style-three';}else{ echo 'main-header header-style-five five-alternate';}?>">
     	<!--Header-Upper-->
+    	<?php if(Route::current()->getName()!='home') {?>
+    	 <div class="header-top">
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <div class="top-left">
+                        <ul class="contact-list clearfix">
+                            <li><i class="fa fa-envelope-o"></i> connect@brainmovers.in</li>
+                            <li><i class="fa fa-phone"></i><a href="#">+91 942 531 3607</a></li>
+							<li><i class="fa fa-map-marker"></i> A20, Jai Bhawani Housing Society,Phase-1, E-8 Gulmohar, Bhopal </li>
+                        </ul>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    <?php } ?>
         <div class="header-upper">
         	<div class="auto-container">
             	<div class="clearfix">
                 	
                 	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="index.php">
+                    	<div class="logo"><a href="./">
                     		<img src="{{ asset('assets/images/logo-3.png')}}" alt="" title=""></a></div>
                     </div>
                    	
@@ -27,7 +43,7 @@
 									<li class="dropdown"><a href="#">About Us</a>
 									<ul>
 									<li><a href="{{URL('about')}}">About Us</a></li>
-									<li><a href="{{URL('team')}}">Our Team</a></li>
+									<!-- <li><a href="{{URL('team')}}">Our Team</a></li> -->
 									<!-- <li><a href="{{URL('about')}}">Case Studies</a></li> -->
 									</ul>
 									</li>
@@ -47,12 +63,15 @@
 									<li><a href="{{URL('blogs')}}">Blog</a>								</li>
 									<li class="dropdown"><a href="contact.html">Support</a>
 										<ul>
-										<li><a href="{{route('contact') }}">Talk to Experts</a></li>
+										<!-- <li><a href="{{route('contact') }}">Talk to Experts</a></li> -->
 										@guest
 											<li><a href="{{ route('login') }}">Admin Login /Sign in</a></li>
 											<li><a href="{{ route('user-login') }}">User Login /Sign in</a></li>
 											<li><a href="{{ route('user-register') }}">Register /Sign up</a></li>
 										@else
+										<li>
+											<a href="{{ URL('profile') }}">Dashboard</a>
+										</li>
 											<li>
 												 <a class="dropdown-item" href="{{ route('logout') }}"
 	                                       onclick="event.preventDefault();
@@ -86,7 +105,7 @@
         	<div class="auto-container clearfix">
             	<!--Logo-->
             	<div class="logo pull-left">
-                	<a href="index.php" class="img-responsive">
+                	<a href="./" class="img-responsive">
                 		<img src="{{ asset('assets/images/logo-small.png')}}" alt="" title="">
                 	</a>
                 </div>
@@ -107,7 +126,7 @@
 								<li class="dropdown"><a href="#">About Us</a>
 									<ul>
 										<li><a href="{{URL('about')}}">About Us</a></li>
-										<li><a href="{{URL('team')}}">Our Team</a></li>
+										<!-- <li><a href="{{URL('team')}}">Our Team</a></li> -->
 										<!-- <li><a href="{{URL('about')}}">Case Studies</a></li> -->
 									</ul>
 								</li>
@@ -124,13 +143,29 @@
 										<li><a href="{{URL('programfeatures')}}">Program Structure</a></li>
 									</ul>
 								</li>
-								<li><a href="blog.php">Blog</a>								</li>
+								<li><a href="{{URL('blogs')}}">Blog</a>								</li>
 								<li class="dropdown"><a href="contact.html">Support</a>
                                 	<ul>
-										<li><a href="{{route('contact') }}">Talk to Experts</a></li>
-										<li><a href="{{ route('login') }}">Admin Login /Sign in</a></li>
-										<li><a href="{{ route('user-login') }}">User Login /Sign in</a></li>
-										<li><a href="{{ route('user-register') }}">Register /Sign up</a></li>
+										<!-- <li><a href="{{route('contact') }}">Talk to Experts</a></li> -->
+										@guest
+											<li><a href="{{ route('login') }}">Admin Login /Sign in</a></li>
+											<li><a href="{{ route('user-login') }}">User Login /Sign in</a></li>
+											<li><a href="{{ route('user-register') }}">Register /Sign up</a></li>
+										@else
+										<li>
+											<a href="{{ URL('profile') }}">Dashboard</a>
+										</li>
+											<li>
+												 <a class="dropdown-item" href="{{ route('logout') }}"
+	                                       onclick="event.preventDefault();
+	                                                     document.getElementById('logout-form').submit();">
+	                                        {{ __('Logout') }}
+	                                    	</a>
+	                                    	<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+											</li>
+										@endguest
 									</ul>
                                 </li>
                                 	<li><a href="{{route('contact') }}">Contact US</a></li>

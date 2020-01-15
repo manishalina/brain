@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Blog;
+use App\User;
+use App\Event;
 use Auth;
-class BlogController extends Controller
+
+class NewseventController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +19,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::get(); 
-        return view('admin.blog.index',compact('blogs'));
+        $events = Event::get(); 
+        return view('admin.news.index',compact('events'));
     }
 
     /**
@@ -25,16 +30,10 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $blog = array();
-        return view('admin.blog.create',compact('blog'));
+        $event = array();
+        return view('admin.news.create',compact('event'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
     public function slugify($text)
         {
@@ -53,11 +52,11 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'=>'required|max:100||unique:blogs',
+            'title'=>'required|max:200||unique:events',
             ]);
-        $image = '';
-        if($_FILES['file']['name'] != ''){
-            $path = 'public/assets/blog/';        
+         $image = '';
+         if($_FILES['file']['name'] != ''){
+            $path = 'public/assets/event/';        
             $image_file         = $request->file('file');
             $destinationPath    = $path;
             $image_name         = $image_file->getClientOriginalName();
@@ -70,49 +69,18 @@ class BlogController extends Controller
         }
         $data = $request->all();
         $slugify=$this->slugify($data['title']);
-        $blog =  Blog::create([          
+        $news =  Event::create([          
           'title'                => $data['title'],
+          'description'          => $data['description'], 
           'slug'                => $slugify,
-          'image'                => $image,
-          'description'          => $data['description'],
-          'createdby'            => Auth::user()->id,         
+          'document'                => $image     
          ]);
-       // //dd($client->id);
-
-        // $getWebInfo = Websitesetting::select('website_name', 'website_logo', 'email', 'address', 'mobile')->first();
-        //  //$org = Organizationmaster::find($data['OrgID']);
-        //  $content = [
-        //      'title'         => 'Registration with FirstAd', 
-        //      'body'          => 'The body of your message.',
-        //      'address'       => $getWebInfo->address,
-        //      'mobile'        => $getWebInfo->mobile,
-        //      'website_name'  => $getWebInfo->website_name,
-        //      'website_logo'  => $getWebInfo->website_logo,
-        //      'email'         => $getWebInfo->email,
-        //      'client'       => $client,
-        //      'name'          => $data['fname'].' '.$data['lname'],
-        //      'password_flag'          => true,
-        //      ];
-        // //$receiverAddress = array('manish@nrt.co.in');
-        // $receiverAddress = array($data['email']);
-        // // //return view('emails.CandidateApply',compact('content'));
-        // $mail = Mail::to($receiverAddress)->bcc('manish09.chakravarti@gmail.com')->send(new ClientMail($content) );
-        // if (count(Mail::failures()) > 0) {
-        //     //echo "There was one or more failures. They were: <br />";
-        //     foreach (Mail::failures as $email_address) {
-        //       //  echo " - $email_address <br />";
-        //     }
-        // }else {
-        //     //echo "No errors, all sent successfully!";
-        // }
-
-
-       if(isset($blog)) {
-        return redirect()->route('blog.index')
+       if(isset($news)) {
+        return redirect()->route('news.index')
             ->with('message',
-             'Blog successfully added.');
+             'News & Event successfully added.');
         }else{
-            return redirect()->route('blog.index')
+            return redirect()->route('news.index')
             ->with('message',
              'Action Failed Please try again.');
         }
@@ -138,8 +106,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-       $blog = Blog::findOrFail($id);
-        return view('admin.blog.create', compact('blog'));
+       $event = Event::findOrFail($id);
+        return view('admin.news.create', compact('event'));
     }
 
     /**
@@ -153,12 +121,12 @@ class BlogController extends Controller
     {
 
         $this->validate($request, [
-            'title'=>'required|max:100||unique:blogs,title,'.$id,
-        ]);
-        $path = 'public/assets/blog/';        
+            'title'=>'required|max:200||unique:faqs,title,'.$id,
+        ]);     
+         $path = 'public/assets/event/';        
         $image_file         = $request->file('file');
-        $blog = blog::findOrFail($id);
-        $oldLogoUrl=$blog->image;
+        $news = Event::findOrFail($id);
+        $oldLogoUrl=$news->image;
         $data = $request->all();
         if($image_file){
                         // file selected
@@ -177,20 +145,21 @@ class BlogController extends Controller
                     return strtolower($filename);
                     });
                     $request->file('file')->move($destinationPath, $image);
-                    $blog->image   = $image;
+                    $news->document   = $image;
         }
-        $slugify=$this->slugify($request->input('title'));
-        $blog->title = $request->input('title');
-        $blog->slug = $slugify;
-        $blog->description = $request->input('description');
-        $blog = $blog->save();
 
-       if(isset($blog)) {
-        return redirect()->route('blog.index')
+        $slugify=$this->slugify($request->input('title'));
+        
+        $news->title = $request->input('title');
+        $news->slug = $slugify;
+        $news->description = $request->input('description');
+        $news = $news->save();
+       if(isset($news)) {
+        return redirect()->route('news.index')
             ->with('message',
-             'Blog successfully updated.');
+             'News & Event successfully updated.');
         }else{
-            return redirect()->route('blog.index')
+            return redirect()->route('news.index')
             ->with('message',
              'Action Failed Please try again.');
         }
@@ -204,17 +173,18 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $blog = Blog::findOrFail($id);
-        $delete = $blog->delete();
+        $news = Event::findOrFail($id);
+        $delete = $news->delete();
 
         if(isset($delete)) {
-        return redirect()->route('blog.index')
+        return redirect()->route('news.index')
             ->with('message',
-             'Blog successfully Deleted.');
+             'News & Event successfully Deleted.');
         }else{
-            return redirect()->route('blog.index')
+            return redirect()->route('news.index')
             ->with('message',
              'Action Failed Please try again.');
         }
     }
+
 }

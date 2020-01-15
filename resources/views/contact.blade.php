@@ -4,7 +4,7 @@
 
     
   <!--Page Title-->
-    <section style="padding: 179px 0px 90px;background-image:url({{asset('assets/images/background/8.jpg')}} )" class="page-title" >
+    <section style="background-image:url({{asset('assets/images/background/8.jpg')}} )" class="page-title" >
       <div class="auto-container">
       <div class="content">
         <h1>Contact <span>us</span></h1>
@@ -59,36 +59,39 @@
           <!-- Form Column -->
           <div class="form-column col-lg-5 col-md-12 col-sm-12">
             <div class="inner-column">
-              
+              <div id="contactmsg"></div>
               <!--Contact Form-->
               <div class="contact-form">
-                <form method="post" action="">
-                  
+                   
                   <div class="form-group">
-                    <input type="text" name="firstname" value="" placeholder="Full name" required>
+                    <input type="text" name="name" id="name" value="" placeholder="Full name" >
+                  <span id="name_error"></span>
                   </div>
                   
                   <div class="form-group">
-                    <input type="text" name="email" value="" placeholder="Email" required>
+                    <input type="text" name="email" id="email" value="" placeholder="Email" >
+                 <span id="email_error"></span>
                   </div>
                   
                   <div class="form-group">
-                    <select class="custom-select-box">
-                      <option>Select topic</option>
+                    <select class="custom-select-box" id="topic">
+                      <option value="">Select topic</option>
                       <option>Talk to Experts</option>
                       <option>General enquiry</option>
                     </select>
+                    <span id="topic_error"></span>
                   </div>
                   
                   <div class="form-group">
-                    <textarea name="message" placeholder="write.."></textarea>
+                    <textarea name="message" id="message" placeholder="write.."></textarea>
+                   <span id="message_error"></span>
                   </div>
                   
                   <div class="form-group">
-                    <button type="submit" class="theme-btn">Submit</button>
+                    <button type="button" onclick="contactus()" class="theme-btn">Submit</button>
                   </div>                                        
                   
-                </form>
+               
               </div>
               
             </div>

@@ -4,7 +4,7 @@
 
     
   <!--Page Title-->
-    <section style="padding: 179px 0px 90px;" class="page-title" style="background-image:url({{asset('assets/images/background/8.jpg')}} )">
+    <section  class="page-title" style="background-image:url({{asset('assets/images/background/8.jpg')}} )">
       <div class="auto-container">
       <div class="content">
         <h1>Program  <span>Highpoints</span></h1>
@@ -95,7 +95,7 @@
           <h2>Request for <span>Guidance</span></h2>
         </div>
         <div class="pull-right">
-          <a href="contact.html" class="theme-btn btn-style-five">Request now <span class="icon fa fa-arrow-right"></span></a>
+          <a href="{{URL('contact')}}" class="theme-btn btn-style-five">Request now <span class="icon fa fa-arrow-right"></span></a>
         </div>
         
       </div>

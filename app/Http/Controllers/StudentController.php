@@ -46,7 +46,7 @@ class StudentController extends Controller
         ]);
         $image = '';
         if($_FILES['file']['name'] != ''){
-            $path = 'assets/student/';        
+            $path = 'public/assets/student/';        
             $image_file         = $request->file('file');
             $destinationPath    = $path;
             $image_name         = $image_file->getClientOriginalName();
@@ -155,7 +155,7 @@ class StudentController extends Controller
             'board'=>'required',
             'stream'=>'required',
         ]);
-        $path = 'assets/student/';        
+        $path = 'public/assets/student/';        
         $image_file         = $request->file('file');
         $user = User::findOrFail($id);
         $oldLogoUrl=$user->image;
@@ -276,6 +276,82 @@ class StudentController extends Controller
                 return redirect()->route('student.index')->with('message','Action Failed Please try again.');
             }
     }
+
+     public function career($id){
+        $student = User::findOrFail($id);
+        return view('admin.student.career', compact('student'));
+    }
+     public function savecareer(Request $request){
+
+             $data = $request->all();
+             $id=$data['id'];
+             $student = User::findOrFail($id);
+             $str =implode(',', $data['career']);
+             $student->career = $str;
+             $udate = $student->save();
+            if(isset($udate)) {
+                return redirect()->route('student.index')->with('message',
+            'Student Subject save successfully.');
+            }else{
+                return redirect()->route('student.index')->with('message','Action Failed Please try again.');
+            }
+    }
+
+     public function subject($id){
+        $student = User::findOrFail($id);
+        $list=explode(',',$student->subject);
+        return view('admin.student.subject', compact('student'));
+    }
+     public function savesubject(Request $request){
+
+             $data = $request->all();
+             $id=$data['id'];
+             $student = User::findOrFail($id);
+             $str =implode(',', $data['subject']);
+             $student->subject = $str;
+             $udate = $student->save();
+            if(isset($udate)) {
+                return redirect()->route('student.index')->with('message',
+            'Student Subject save successfully.');
+            }else{
+                return redirect()->route('student.index')->with('message','Action Failed Please try again.');
+            }
+    }
+     public function feedback($id){
+        $student = User::findOrFail($id);
+        return view('admin.student.feedback', compact('student'));
+    }
+     public function savefeedback(Request $request){
+             $data = $request->all();
+             $id=$data['id'];
+             $student = User::findOrFail($id);
+             $student->feedback =$data['description'];
+             $udate = $student->save();
+            if(isset($udate)) {
+                return redirect()->route('student.index')->with('message',
+            'Student feedback save successfully.');
+            }else{
+                return redirect()->route('student.index')->with('message','Action Failed Please try again.');
+            }
+    }
+
+     public function traits($id){
+        $student = User::findOrFail($id);
+        return view('admin.student.traits', compact('student'));
+    }
+     public function savetraits(Request $request){
+             $data = $request->all();
+             $id=$data['id'];
+             $student = User::findOrFail($id);
+             $student->traits =$data['description'];
+             $udate = $student->save();
+            if(isset($udate)) {
+                return redirect()->route('student.index')->with('message',
+            'Student traits save successfully.');
+            }else{
+                return redirect()->route('student.index')->with('message','Action Failed Please try again.');
+            }
+    }
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
@@ -291,4 +367,6 @@ class StudentController extends Controller
              'Action Failed Please try again.');
         }
     }
+
+   
 }

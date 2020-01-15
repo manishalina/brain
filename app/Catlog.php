@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Blog extends Authenticatable
+class Catlog extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
@@ -17,14 +17,13 @@ class Blog extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'title', 'image', 'description','createdby','slug'
-    ];
-public function userDetail(){
-        return $this->belongsTo('App\User', 'createdby', 'id');
-    }
+    protected $fillable = ['title','description'];
+    // public function userDetail(){
+    //     return $this->belongsTo('App\User', 'user_id', 'id');
+    // }
+
     public function getRouteKeyName()
     {
-        return 'slug';
+        return 'title';
     }
 }

@@ -9,8 +9,11 @@
             <h6 class="text-center" style="font-weight:800">Undertake an advanced assessment and arrive at a career that best suits and fits you</h6>
             <div class="demoescon mt-4">
                 <ul class="list-inline text-center">
-                    <li class="list-inline-item"><input type="text" class="form-control" placeholder="Enter your email" style="height: 45px;"/></li>
-                    <li class="list-inline-item"><button class="theme-btn btn-style-eight">Connect us</button></li>
+                    <li class="list-inline-item">
+                      <input type="text" class="form-control" placeholder="Enter your email" style="height: 45px;float: left;width: 58%;" id="subscribe_email" name="subscribe_email"/> <button class="theme-btn btn-style-eight" onclick="subscribe()" style="float: right;">Connect us</button>
+                      <span id="subscribe_error"></span>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -667,9 +670,11 @@
          <section class="testimonial-section-two">
             <div class="image-layer" style="background-image:url(images/background/22.jpg)"></div>
             <div class="auto-container">
-               <h2>Some from out <span>clients</span></h2>
+               <h2>Some from out <span>students</span></h2>
                <div class="testimonial-carousel-two owl-carousel owl-theme">
                   <!-- Testimonial Block -->
+                   @foreach($comments as $key=>$comment)
+
                   <div class="testimonial-block-three">
                      <div class="inner-box">
                         <div class="row clearfix">
@@ -677,67 +682,32 @@
                            <div class="image-column col-lg-3 col-md-4 col-sm-12">
                               <div class="inner-column">
                                  <div class="image">
-                                    <img src="{{ asset('assets/images/resource/author-5.jpg') }}" alt="" />
+                                   <?php
+                                    $image = "";
+                                    if($comment->userDetail->image !=''){
+                                    $image = "assets/student/".$comment->userDetail->image;
+                                    }else{
+                                    $image = "assets/images/user.png";
+                                    }
+                                   ?>
+                                   <img src="{{asset($image)}}" alt="{{$comment->userDetail->name}}" style="width: 270px; height: 367px;" />
                                  </div>
                               </div>
                            </div>
                            <!-- Content Column -->
                            <div class="content-column col-lg-9 col-md-8 col-sm-12">
                               <div class="inner-column">
-                                 <div class="text"><span class="icon flaticon-left-quote"></span>So when a friend asked her to help design a house in Costa Rica, she jumped at the chance. she jumped at the chance. It was there that she stumbled upon La Iguana, a family-run cacao farm in the village of Mastatal.</div>
-                                 <h5>Amber Lee</h5>
-                                 <div class="designation">Co-founder</div>
+                                 <div class="text"><span class="icon flaticon-left-quote"></span>{{$comment->description}}</div>
+                                 <h5>{{$comment->userDetail->name}}</h5>
+                                 <div class="designation">Student</div>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
-                  <!-- Testimonial Block -->
-                  <div class="testimonial-block-three">
-                     <div class="inner-box">
-                        <div class="row clearfix">
-                           <!-- Image Column -->
-                           <div class="image-column col-lg-3 col-md-4 col-sm-12">
-                              <div class="inner-column">
-                                 <div class="image">
-                                    <img src="{{ asset('assets/images/resource/author-5.jpg') }}" alt="" />
-                                 </div>
-                              </div>
-                           </div>
-                           <!-- Content Column -->
-                           <div class="content-column col-lg-9 col-md-8 col-sm-12">
-                              <div class="inner-column">
-                                 <div class="text"><span class="icon flaticon-left-quote"></span>So when a friend asked her to help design a house in Costa Rica, she jumped at the chance. she jumped at the chance. It was there that she stumbled upon La Iguana, a family-run cacao farm in the village of Mastatal.</div>
-                                 <h5>Amber Lee</h5>
-                                 <div class="designation">Co-founder</div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- Testimonial Block -->
-                  <div class="testimonial-block-three">
-                     <div class="inner-box">
-                        <div class="row clearfix">
-                           <!-- Image Column -->
-                           <div class="image-column col-lg-3 col-md-4 col-sm-12">
-                              <div class="inner-column">
-                                 <div class="image">
-                                    <img src="{{ asset('assets/images/resource/author-5.jpg') }}" alt="" />
-                                 </div>
-                              </div>
-                           </div>
-                           <!-- Content Column -->
-                           <div class="content-column col-lg-9 col-md-8 col-sm-12">
-                              <div class="inner-column">
-                                 <div class="text"><span class="icon flaticon-left-quote"></span>So when a friend asked her to help design a house in Costa Rica, she jumped at the chance. she jumped at the chance. It was there that she stumbled upon La Iguana, a family-run cacao farm in the village of Mastatal.</div>
-                                 <h5>Amber Lee</h5>
-                                 <div class="designation">Co-founder</div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  @endforeach
+                 
+                  
                </div>
             </div>
          </section>
@@ -896,21 +866,25 @@
                   </div>
                </div>
                <div class="row clearfix">
+
                   <!-- News Block Four -->
                   @foreach($blogs as $key=>$blog)
                   <div class="news-block-four col-lg-4 col-md-6 col-sm-12">
                      <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="image">
-                           <img src="{{asset('assets/blog/'.$blog->image)}}" alt="" />
+                           <img style="height: 150px;" src="{{asset('assets/blog/'.$blog->image)}}" alt="" />
                            <div class="overlay-box">
                               <a href="{{asset('assets/blog/'.$blog->image)}}" data-fancybox="news" data-caption="" class="plus flaticon-plus-symbol"></a>
                            </div>
                         </div>
                         <div class="lower-content">
                            <ul class="post-meta">
-                              <li><span class="fa fa-user"></span>Written By: {{$blog->user_detail->name}}</li>
+                              <li><span class="fa fa-user"></span>Written By: {{$blog->userDetail->name}}</li>
                            </ul>
-                           <h5><a href="#">{{$blog->title}}</a></h5>
+                           <h5><a href="{{URL('blogs/'.$blog->slug)}}">
+                           <?php $title=substr($blog->title, 0,25); ?>
+                            {{$title}}..
+                          </a></h5>
                            <a href="{{URL('blogs')}}" class="theme-btn btn-style-eighteen">View more</a>
                         </div>
                      </div>
@@ -923,8 +897,9 @@
                   
                </div>
             </div>
+            </div>
          </section>
-
+<div style="height:100px"></div>
 
           <section class="map-info-section">
             <div class="outer-container">
@@ -945,22 +920,25 @@
                         <!-- Quote Form -->
                         <div class="quote-form">
                            <!--Contact Form-->
-                           <form method="post" action="http://themexriver.com/tfhtml/finano/contact.html">
+                          <div id="requestmsg"></div>
                               <div class="row clearfix">
                                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <input type="text" name="username" placeholder="Your name:*" required>
+                                    <input type="text" class="name-valid" id="requestname" placeholder="Your name:*" maxlength="50" >
+                                    <span id="requestname_error"></span>
                                  </div>
                                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <input type="text" name="phone" placeholder=" Contact Number:*" required>
+                                    <input type="text"  name="requestphone" placeholder=" Contact Number:*" id="requestphone" maxlength="10">
+                                     <span id="requestphone_error"></span>
                                  </div>
                                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <input type="text" name="text" placeholder="Your City:*" required>
+                                    <input type="text" class="name-valid" name="requestcity" placeholder="Your City:*" id="requestcity" maxlength="10">
+                                    <span id="requestcity_error"></span>
                                  </div>
                                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <button type="submit" class="theme-btn btn-style-one">Submit request <span class="icon flaticon-share-option"></span></button>
+                                    <button type="button" class="theme-btn btn-style-one" onclick="requestform()">Submit request <span class="icon flaticon-share-option"></span></button>
                                  </div>
                               </div>
-                           </form>
+                          
                         </div>
                      </div>
                   </div>
